@@ -122,7 +122,18 @@ function SalesPage() {
         </div>
       </section>
 
-      <section className="section section-dark">
+
+      <section className="section section-soft contents-section">
+        <div className="section-wrap contents-grid">
+          <div><div className="eyebrow">TUDO O QUE VOCÊ VAI RECEBER</div><h2>Um material completo para estudar, revisar e <em>consultar sempre.</em></h2><p className="contents-lead">Após a compra, você terá acesso aos conteúdos digitais organizados por assunto, com mapas mentais e materiais de apoio.</p><img className="contents-cover" src={cover} alt="Materiais digitais do Mapa Fácil da Reforma Tributária"/></div>
+          <div className="contents-list">
+            {["Mapa Fácil da Reforma Tributária","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Apuração Assistida explicada","Quando fazer Nota de Débito e Crédito","Imposto Seletivo","Transição da Reforma","Impactos na rotina contábil e fiscal","Documentos fiscais e obrigações","Simples Nacional, MEI e regimes específicos","Termos técnicos traduzidos","Mapas mentais organizados por tema","Atualizações conforme mudanças relevantes da Reforma"].map((item)=><p key={item}><CheckCircle2/>{item}</p>)}
+          </div>
+        </div>
+      </section>
+      <section className="reference-urgency">
+        <div className="section-wrap"><div className="eyebrow">OFERTA ESPECIAL POR TEMPO LIMITADO</div><h2>Quanto tempo você ainda vai perder tentando entender a Reforma Tributária em conteúdos soltos?</h2><p>Aproveite a condição especial e escolha seu acesso.</p><a className="button button-primary" href="#oferta">QUERO ACESSAR AGORA <ArrowRight size={18}/></a></div>
+      </section>\n      <section className="section section-dark">
         <div className="section-wrap">
           <div className="section-heading light"><div className="eyebrow">VOCÊ RECEBE NO PLANO COMPLETO</div><h2>O material principal + <em>8 bônus exclusivos</em></h2><p>Mais recursos para consultar e organizar seus estudos.</p></div>
           <div className="bonus-grid">
