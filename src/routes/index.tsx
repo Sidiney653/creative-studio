@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight, Check, CheckCircle2, Clock3, Download, FileText, Gift,
-  GraduationCap, Mail, MessageCircle, ShieldCheck, Smartphone, Star,
+  Mail, ShieldCheck, Smartphone,
   BookOpen, Calculator, CalendarDays, Table2, ClipboardCheck, Sparkles,
   ChevronDown, Zap, LockKeyhole
 } from "lucide-react";
