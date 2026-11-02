@@ -1,194 +1,115 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ArrowRight, Check, CheckCircle2, Clock3, Download, FileText, Gift,
-  Mail, ShieldCheck, Smartphone,
-  BookOpen, Calculator, CalendarDays, Table2, ClipboardCheck, Sparkles,
-  ChevronDown, Zap, LockKeyhole
-} from "lucide-react";
+import { Check, CheckCircle2, ArrowRight, ShieldCheck, Download, Smartphone, BookOpen, Calculator, FileText, Gift, Clock3, ChevronDown, Zap, Mail, Printer, Users } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-  component: SalesPage,
-});
+export const Route = createFileRoute("/")({ component: SalesPage });
 
 const cover = "https://materialseguro.site/wp-content/uploads/2026/07/MockupCompleto-1.webp";
-const previewImages = [
-  "https://materialseguro.site/wp-content/uploads/2026/07/2.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/3-1.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/4.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/5.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/6.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/7.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/MockupDemonstrativo.webp",
+const basic = "https://pay.hotmart.com/B106933353W?checkoutMode=10";
+const complete = "https://pay.hotmart.com/J106917128D?checkoutMode=10";
+const gallery = [
+ "https://materialseguro.site/wp-content/uploads/2026/07/MockupDemonstrativo.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/2.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/3-1.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/4.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/5.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/6.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/7.webp",
 ];
-const bonusImages = [
-  "https://materialseguro.site/wp-content/uploads/2026/07/GlossarioMockup2-768x960.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/1WEBP-768x576.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/Checklist-O-Que-Entender-Primeiro-819x1024.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/2WEBP-1024x683.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/LinhadoTempo-1024x768.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/3WEBP-819x1024.webp",
-  "https://materialseguro.site/wp-content/uploads/2026/07/QuadroAnteseDepois-1024x768.png",
-  "https://materialseguro.site/wp-content/uploads/2026/07/Mockup-1024x768.png",
+const lifestyle = [
+ "https://materialseguro.site/wp-content/uploads/2026/07/1-2.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/3-2.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/7-1.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/9.webp",
+ "https://materialseguro.site/wp-content/uploads/2026/07/10.webp",
 ];
-const basicCheckout = "https://pay.hotmart.com/B106933353W?checkoutMode=10";
-const completeCheckout = "https://pay.hotmart.com/J106917128D?checkoutMode=10";
-
 const bonuses = [
-  { n: "01", image: bonusImages[0], title: "Glossário Visual da Reforma Tributária", desc: "Consulte os principais termos da Reforma com explicações diretas, sem ficar perdido no juridiquês.", icon: BookOpen },
-  { n: "02", image: bonusImages[1], title: "Tabela pronta de CST, cClassTrib, cIndOp e cCredPres", desc: "Uma tabela organizada para facilitar a consulta dos códigos e classificações.", icon: Table2 },
-  { n: "03", image: bonusImages[2], title: "Checklist: O Que Entender Primeiro", desc: "Saiba quais assuntos priorizar e tenha um caminho mais claro para começar.", icon: ClipboardCheck },
-  { n: "04", image: bonusImages[3], title: "Planilha Calculadora de IBS/CBS", desc: "Uma planilha de apoio para simular cálculos de IBS e CBS com mais praticidade.", icon: Calculator },
-  { n: "05", image: bonusImages[4], title: "Linha do Tempo Visual", desc: "Visualize as fases e os principais períodos de transição da Reforma Tributária.", icon: CalendarDays },
-  { n: "06", image: bonusImages[5], title: "Gabarito de preenchimento do IBS/CBS na Nota Fiscal", desc: "Consulte os campos e etapas envolvidos no preenchimento dos documentos fiscais.", icon: FileText },
-  { n: "07", image: bonusImages[6], title: "Quadro Antes x Depois da Reforma", desc: "Compare o modelo atual com o novo sistema e identifique as principais mudanças.", icon: ArrowRight },
-  { n: "08", image: bonusImages[7], title: "Guia de emissão de documentos fiscais", desc: "Material de apoio sobre NF-e, NFC-e, CT-e e NFS-e, com orientações para o cenário de 2026.", icon: Download },
+ ["Glossário Visual da Reforma Tributária","Um material simples para consultar os principais termos da Reforma sem ficar perdido no juridiquês.","https://materialseguro.site/wp-content/uploads/2026/07/GlossarioMockup2-768x960.webp"],
+ ["Tabela pronta com CST, cClassTrib, cIndOp e cCredPres","Uma tabela pronta para consulta rápida dos principais códigos da Reforma.","https://materialseguro.site/wp-content/uploads/2026/07/1WEBP-768x576.webp"],
+ ["Checklist “O Que Entender Primeiro”","Uma lista prática para saber quais temas priorizar antes de se aprofundar na Reforma.","https://materialseguro.site/wp-content/uploads/2026/07/Checklist-O-Que-Entender-Primeiro-819x1024.webp"],
+ ["Planilha Calculadora de IBS/CBS","Uma planilha pronta para calcular IBS/CBS, de forma visual e organizada.","https://materialseguro.site/wp-content/uploads/2026/07/2WEBP-1024x683.webp"],
+ ["Linha do Tempo Visual","Um material visual para entender a transição da Reforma Tributária com mais clareza.","https://materialseguro.site/wp-content/uploads/2026/07/LinhadoTempo-1024x768.webp"],
+ ["Gabarito de preenchimento do IBS/CBS na Nota Fiscal","Um gabarito para verificar o que preencher na nota fiscal e conferir os campos.","https://materialseguro.site/wp-content/uploads/2026/07/3WEBP-819x1024.webp"],
+ ["Quadro Antes x Depois da Reforma","Um comparativo simples para visualizar o que muda entre o sistema atual e o novo modelo tributário.","https://materialseguro.site/wp-content/uploads/2026/07/QuadroAnteseDepois-1024x768.png"],
+ ["Guia de Emissão de NF-e, NFC-e, CT-e e NFS-e","Um guia para entender a emissão dos principais documentos fiscais.","https://materialseguro.site/wp-content/uploads/2026/07/Mockup-1024x768.png"]
 ];
-
+const ideal = [
+ ["Entender a Reforma Tributária sem começar por leis extensas","Compreender os principais pontos sem travar em textos técnicos logo de início."],
+ ["Organizar tudo o que está sendo falado no mercado","IBS, CBS, Imposto Seletivo e transição em uma sequência mais clara."],
+ ["Estudar sem depender de lives longas","Acessar mapas visuais e revisar os temas de forma mais rápida."],
+ ["Saber por onde começar","Seguir um caminho simples sem ficar pulando de conteúdo em conteúdo."],
+ ["Ganhar mais segurança para falar sobre o tema","Acompanhar conversas, reuniões e conteúdos com mais clareza."],
+ ["Traduzir termos técnicos com facilidade","Consultar conceitos importantes em uma linguagem mais simples."]
+];
 const faqs = [
-  ["Preciso ser contador para entender o conteúdo?", "Não. O material foi pensado para profissionais contábeis, fiscais, estudantes e também para quem precisa compreender os principais pontos da Reforma Tributária."],
-  ["O acesso é imediato após a compra?", "Sim. Após a confirmação do pagamento, a Hotmart libera as informações para acessar a área de membros."],
-  ["O material explica IBS, CBS e Imposto Seletivo?", "Sim. Esses temas fazem parte do conteúdo principal e são apresentados de forma visual e organizada."],
-  ["Vou receber os bônus também?", "Sim. Os oito bônus estão incluídos no Plano Completo."],
-  ["O material será atualizado?", "O conteúdo poderá receber atualizações conforme mudanças relevantes da Reforma Tributária."],
-  ["Por quanto tempo terei acesso?", "O acesso é digital e você poderá consultar os materiais conforme as condições apresentadas na área de membros."],
-  ["Esse produto substitui uma consultoria contábil, fiscal ou jurídica?", "Não. O Mapa Fácil é um material educacional e informativo. Ele não substitui orientação profissional individual."],
-  ["Posso pagar no cartão ou Pix?", "As formas de pagamento disponíveis aparecem diretamente no checkout seguro da Hotmart."],
+ ["Preciso ser contador para entender o conteúdo?","Não. O material foi criado para profissionais contábeis, fiscais, estudantes e também para quem precisa entender a Reforma sem começar por leis extensas ou explicações complicadas."],
+ ["O acesso é imediato após a compra?","Sim. Após a confirmação do pagamento, você recebe as informações de acesso para consultar os materiais."],
+ ["O material explica IBS, CBS e Imposto Seletivo?","Sim. Esses temas fazem parte do conteúdo principal e são apresentados de forma visual para facilitar o entendimento."],
+ ["Vou receber os bônus também?","Os bônus fazem parte do Plano Completo. Nele, você recebe o Mapa Fácil da Reforma Tributária + todos os bônus exclusivos."],
+ ["O material será atualizado?","Sim. Como a Reforma Tributária ainda pode ter mudanças relevantes, o material poderá receber atualizações conforme necessário."],
+ ["Por quanto tempo terei acesso ao material?","Você terá acesso ao material digital adquirido para consultar, revisar e estudar sempre que precisar."],
+ ["Esse produto substitui uma consultoria contábil, fiscal ou jurídica?","Não. O Mapa Fácil da Reforma Tributária é um material educacional e informativo. Ele não substitui orientação profissional individual."],
+ ["Posso pagar no cartão ou Pix?","Sim. As formas de pagamento disponíveis aparecem na página de checkout no momento da compra."]
 ];
-
 function SalesPage() {
-  return (
-    <main className="sales-page">
-      <div className="top-strip"><Zap size={14} fill="currentColor" /> ⚡ OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div>
-      <header className="site-header">
-        <a href="#inicio" className="brand"><span className="brand-mark">MF</span><span>MAPA FÁCIL<small>REFORMA TRIBUTÁRIA</small></span></a>
-        <a className="header-cta" href="#oferta">Ver planos <ArrowRight size={16}/></a>
-      </header>
-
-      <section className="hero section-wrap" id="inicio">
-        <div className="hero-copy">
-          <div className="eyebrow"><span className="eyebrow-dot"/> MAPA FÁCIL DA REFORMA TRIBUTÁRIA</div>
-          <h1>Entenda a Reforma Tributária <em>sem se perder</em> em leis e explicações complicadas.</h1>
-          <p className="hero-lead">Material feito para entender IBS, CBS, Imposto Seletivo, como calcular, Notas Fiscais, Apuração Assistida, Nota de Débito e Crédito e as principais mudanças de forma simples, visual e organizada.</p>
-          <ul className="check-list hero-checks">
-            <li><CheckCircle2/> Mapas mentais prontos e organizados por tema</li>
-            <li><CheckCircle2/> Explicações visuais dos novos tributos</li>
-            <li><CheckCircle2/> Como ficam Simples Nacional, Lucro Presumido e Lucro Real</li><li><CheckCircle2/> Cálculos de IBS e CBS, Apuração Assistida e Nota de Débito e Crédito</li><li><CheckCircle2/> Glossário visual e checklist para saber por onde começar</li>
-          </ul>
-          <a className="button button-primary" href="#oferta">QUERO ACESSAR O MATERIAL <ArrowRight size={18}/></a>
-          <div className="secure-note"><LockKeyhole size={14}/> Compra segura • Material digital • Acesso após a confirmação</div>
-        </div>
-        <div className="hero-visual">
-          <div className="visual-glow"/>
-          <img src={cover} alt="Kit visual Mapa Fácil da Reforma Tributária e materiais complementares" />
-          <div className="floating-note"><span className="note-icon"><Download size={18}/></span><span><b>Material digital</b><small>Consulte em seus dispositivos</small></span></div>
-        </div>
-      </section>
-
-      <section className="trust-row">
-        <div><ShieldCheck/><span><b>Compra protegida</b><small>Checkout Hotmart</small></span></div>
-        <div><Download/><span><b>Acesso digital</b><small>Após a confirmação</small></span></div>
-        <div><Smartphone/><span><b>Estude onde quiser</b><small>Celular, tablet ou computador</small></span></div>
-        <div><Clock3/><span><b>Consulte sempre</b><small>Material para revisar</small></span></div>
-      </section>
-
-      <section className="section section-soft">
-        <div className="section-wrap intro-grid">
-          <div><div className="eyebrow">MAIS CLAREZA, MENOS CONFUSÃO</div><h2>Um assunto complexo fica mais fácil quando está <em>bem organizado.</em></h2></div>
-          <div className="intro-text"><p>A Reforma Tributária traz novos conceitos, siglas e mudanças que precisam ser acompanhadas. O Mapa Fácil reúne os principais temas em uma sequência visual, para ajudar você a construir uma visão geral antes de se aprofundar.</p><p>Em vez de juntar informações soltas, você encontra os assuntos separados e prontos para estudar, revisar e consultar.</p></div>
-        </div>
-      </section>
-
-      <section className="section section-wrap">
-        <div className="section-heading"><div className="eyebrow">CONTEÚDO PRINCIPAL</div><h2>O que você encontra no <em>Mapa Fácil</em></h2><p>Uma visão organizada dos principais pontos da Reforma Tributária.</p></div>
-        <div className="feature-grid">
-          <article className="feature-card"><span className="feature-icon"><BookOpen/></span><h3>Mapas mentais prontos</h3><p>Os principais temas organizados visualmente para você não precisar começar seus resumos do zero.</p></article>
-          <article className="feature-card"><span className="feature-icon"><Sparkles/></span><h3>Novos tributos explicados</h3><p>IBS, CBS e Imposto Seletivo apresentados de maneira mais clara e didática.</p></article>
-          <article className="feature-card"><span className="feature-icon"><FileText/></span><h3>Conteúdo por assunto</h3><p>Transição, documentos fiscais, obrigações, regimes específicos e rotina contábil separados por tema.</p></article>
-          <article className="feature-card"><span className="feature-icon"><Download/></span><h3>Arquivos digitais</h3><p>Materiais prontos para estudar, revisar e consultar no celular, tablet ou computador.</p></article>
-        </div>
-      </section>
-
-      <section className="section preview-section">
-        <div className="section-wrap preview-grid">
-          <div className="preview-copy"><div className="eyebrow">VEJA COMO É POR DENTRO</div><h2>Visualize os assuntos. <em>Conecte as informações.</em></h2><p>O material foi pensado para transformar temas técnicos em páginas visuais, com tópicos e explicações organizadas para facilitar a consulta.</p><a className="text-link" href="#oferta">Quero conhecer o material <ArrowRight size={16}/></a></div>
-          <div className="preview-image"><img src={cover} alt="Prévia dos mapas mentais e materiais do Mapa Fácil"/></div>
-        </div>
-      </section>
-
-      <section className="section section-wrap audience-section">
-        <div className="section-heading"><div className="eyebrow">PARA QUEM É ESTE MATERIAL</div><h2>Feito para quem precisa <em>entender e acompanhar</em> a Reforma</h2></div>
-        <div className="audience-grid">
-          {["Profissionais da contabilidade","Analistas fiscais e tributários","Estudantes de Ciências Contábeis","Empreendedores e gestores","Quem deseja acompanhar as mudanças"].map((item)=><div className="audience-item" key={item}><Check size={17}/>{item}</div>)}
-        </div>
-      </section>
-
-
-      <section className="section section-soft contents-section">
-        <div className="section-wrap contents-grid">
-          <div><div className="eyebrow">TUDO O QUE VOCÊ VAI RECEBER</div><h2>Um material completo para estudar, revisar e <em>consultar sempre.</em></h2><p className="contents-lead">Após a compra, você terá acesso aos conteúdos digitais organizados por assunto, com mapas mentais e materiais de apoio.</p><img className="contents-cover" src={cover} alt="Materiais digitais do Mapa Fácil da Reforma Tributária"/></div>
-          <div className="contents-list">
-            {["Mapa Fácil da Reforma Tributária","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Apuração Assistida explicada","Quando fazer Nota de Débito e Crédito","Imposto Seletivo","Transição da Reforma","Impactos na rotina contábil e fiscal","Documentos fiscais e obrigações","Simples Nacional, MEI e regimes específicos","Termos técnicos traduzidos","Mapas mentais organizados por tema","Atualizações conforme mudanças relevantes da Reforma"].map((item)=><p key={item}><CheckCircle2/>{item}</p>)}
-          </div>
-        </div>
-      </section>
-      <section className="reference-urgency">
-        <div className="section-wrap"><div className="eyebrow">OFERTA ESPECIAL</div><h2>Quanto tempo você ainda vai perder tentando entender a Reforma Tributária em conteúdos soltos?</h2><p>Confira a condição promocional e escolha seu acesso.</p><a className="button button-primary" href="#oferta">QUERO ACESSAR AGORA <ArrowRight size={18}/></a></div>
-      </section>\n      <section className="section section-dark">
-        <div className="section-wrap">
-          <div className="section-heading light"><div className="eyebrow">VOCÊ RECEBE NO PLANO COMPLETO</div><h2>O material principal + <em>8 bônus exclusivos</em></h2><p>Mais recursos para consultar e organizar seus estudos.</p></div>
-          <div className="bonus-grid">
-            {bonuses.map((bonus)=>{const Icon=bonus.icon;return <article className="bonus-card" key={bonus.n}><div className="bonus-top"><span>BÔNUS {bonus.n}</span><Gift size={18}/></div><div className="bonus-image"><img src={bonus.image} alt={bonus.title}/></div><div className="bonus-icon"><Icon size={22}/></div><h3>{bonus.title}</h3><p>{bonus.desc}</p><div className="bonus-free"><span>INCLUSO</span><b>GRÁTIS</b></div></article>})}
-          </div>
-          <div className="bonus-bottom"><Gift size={18}/> Os 8 bônus estão incluídos no Plano Completo, sem cobrança adicional.</div>
-        </div>
-      </section>
-
-      <section className="section section-wrap pricing-section" id="oferta">
-        <div className="section-heading"><div className="eyebrow">ESCOLHA SEU ACESSO</div><h2>Qual opção faz mais sentido <em>para você?</em></h2><p>Escolha seu plano e conclua a compra no ambiente seguro da Hotmart.</p></div>
-        <div className="pricing-grid">
-          <article className="price-card">
-            <img className="plan-cover" src="https://materialseguro.site/wp-content/uploads/2026/07/MockupBasico.webp" alt="Mockup do Plano Básico"/><div className="plan-name">PLANO BÁSICO</div><h3>Mapa Fácil</h3><p className="plan-desc">Para ter acesso ao material principal e começar a organizar seus estudos.</p>
-            <div className="price-old">De R$ 57,90 por</div><div className="price"><span>R$</span>27<small>,90</small></div><div className="price-note">Pagamento à vista</div>
-            <div className="plan-divider"/>
-            <ul className="plan-list"><li><Check/> Mapa Fácil da Reforma Tributária</li><li><Check/> Mapas mentais e temas principais</li><li><Check/> Acesso à área de membros</li></ul>
-            <a className="button button-outline" href={basicCheckout} target="_blank" rel="noreferrer">QUERO O PLANO BÁSICO <ArrowRight size={17}/></a>
-            <div className="price-foot"><LockKeyhole size={13}/> Checkout seguro Hotmart</div>
-          </article>
-          <article className="price-card featured">
-            <div className="popular-tag"><Zap size={14} fill="currentColor"/> PLANO MAIS COMPLETO</div>
-            <img className="plan-cover" src={cover} alt="Mockup do Plano Completo"/><div className="plan-name">PLANO COMPLETO</div><h3>Mapa Fácil + 8 Bônus</h3><p className="plan-desc">O pacote completo para estudar, revisar e consultar os principais materiais.</p>
-            <div className="price-old">De R$ 77,90 por</div><div className="price"><span>R$</span>37<small>,90</small></div><div className="price-note">Pagamento à vista</div>
-            <div className="plan-divider"/>
-            <ul className="plan-list"><li><Check/> Tudo do Plano Básico</li><li><Check/> Glossário Visual da Reforma</li><li><Check/> Tabelas CST, cClassTrib, cIndOp e cCredPres</li><li><Check/> Checklist do que entender primeiro</li><li><Check/> Planilha Calculadora de IBS/CBS</li><li><Check/> Linha do Tempo Visual</li><li><Check/> Gabarito IBS/CBS na Nota Fiscal</li><li><Check/> Quadro Antes x Depois</li><li><Check/> Guia de emissão de documentos fiscais</li></ul>
-            <a className="button button-primary" href={completeCheckout} target="_blank" rel="noreferrer">QUERO O PLANO COMPLETO <ArrowRight size={18}/></a>
-            <div className="price-foot"><ShieldCheck size={14}/> Compra protegida • Garantia de 7 dias</div>
-          </article>
-        </div>
-        <p className="pricing-disclaimer">Os valores e condições finais são confirmados no checkout. O parcelamento pode incluir acréscimos.</p>
-      </section>
-
-      <section className="section guarantee-section">
-        <div className="section-wrap guarantee-card"><div className="guarantee-seal"><ShieldCheck size={44}/><b>7 DIAS</b><small>GARANTIA</small></div><div><div className="eyebrow">SUA COMPRA COM MAIS TRANQUILIDADE</div><h2>Você tem 7 dias de <em>garantia.</em></h2><p>Após a compra, você tem o prazo de 7 dias para avaliar o material. Se decidir que ele não é para você, poderá solicitar o reembolso conforme as condições da plataforma.</p><a href={completeCheckout} className="text-link" target="_blank" rel="noreferrer">Acessar o checkout <ArrowRight size={16}/></a></div></div>
-      </section>
-
-      <section className="section section-wrap steps-section">
-        <div className="section-heading"><div className="eyebrow">SIMPLES E DIGITAL</div><h2>Como você recebe seu <em>material</em></h2></div>
-        <div className="steps-grid">
-          <div className="step"><span>01</span><div className="step-icon"><LockKeyhole/></div><h3>Conclua sua compra</h3><p>Escolha o plano e finalize o pagamento no checkout seguro.</p></div>
-          <div className="step"><span>02</span><div className="step-icon"><Mail/></div><h3>Receba o acesso</h3><p>Após a confirmação, você recebe as instruções para acessar a área de membros.</p></div>
-          <div className="step"><span>03</span><div className="step-icon"><Download/></div><h3>Acesse os arquivos</h3><p>Encontre os mapas e materiais organizados para consultar.</p></div>
-          <div className="step"><span>04</span><div className="step-icon"><Smartphone/></div><h3>Estude onde quiser</h3><p>Consulte pelo celular, tablet ou computador, no seu ritmo.</p></div>
-        </div>
-      </section>
-
-      <section className="section faq-section">
-        <div className="section-wrap faq-wrap"><div className="faq-intro"><div className="eyebrow">AINDA TEM DÚVIDAS?</div><h2>Perguntas <em>frequentes</em></h2><p>Veja as respostas para as dúvidas mais comuns sobre o material e o acesso.</p></div><div className="faq-list">{faqs.map(([q,a])=><details className="faq-item" key={q}><summary>{q}<ChevronDown size={19}/></summary><p>{a}</p></details>)}</div></div>
-      </section>
-
-      <section className="final-cta"><div className="section-wrap final-inner"><div className="eyebrow">MAPA FÁCIL DA REFORMA TRIBUTÁRIA</div><h2>Organize seu conhecimento. <em>Entenda com mais clareza.</em></h2><p>Escolha seu plano e tenha acesso aos materiais digitais.</p><a className="button button-light" href="#oferta">ESCOLHER MEU PLANO <ArrowRight size={18}/></a></div></section>
-
-      <footer className="site-footer"><div className="section-wrap footer-inner"><a href="#inicio" className="brand footer-brand"><span className="brand-mark">MF</span><span>MAPA FÁCIL<small>REFORMA TRIBUTÁRIA</small></span></a><p>Material educacional e informativo. Não substitui consultoria ou orientação profissional contábil, fiscal ou jurídica individual.</p><small>© {new Date().getFullYear()} • Todos os direitos reservados.</small></div></footer>
-      <a className="mobile-sticky" href="#oferta">VER PLANOS E ACESSAR <ArrowRight size={17}/></a>
-    </main>
-  );
+ return <main className="ref-page">
+  <div className="ref-top">⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE</div>
+  <section className="ref-hero">
+   <div className="ref-brand">MAPA FÁCIL DA REFORMA TRIBUTÁRIA</div>
+   <h1>Mapa Fácil da Reforma Tributária</h1>
+   <h2>Material visual para entender IBS, CBS, Imposto Seletivo e as principais mudanças de forma simples, visual e organizada</h2>
+   <img className="ref-main-cover" src={cover} alt="Kit Mapa Fácil da Reforma Tributária"/>
+   <h3>Entenda a Reforma Tributária sem se perder em leis extensas, lives longas ou explicações complicadas</h3>
+   <p>Material feito para entender IBS, CBS, Imposto Seletivo, como calcular, Notas Fiscais, Apuração Assistida, Nota de Débito e Crédito e as principais mudanças de forma simples, visual e organizada.</p>
+   <ul className="ref-checks">
+    {["Arquivos digitais organizados para consulta rápida","Mapas mentais visuais sobre os principais pontos da Reforma Tributária","IBS, CBS, Imposto Seletivo e transição explicados com mais clareza","Como ficam os Regimes Tributários como Simples Nacional, Lucro Presumido e Lucro Real","Cálculos de IBS e CBS explicados","Glossário visual para traduzir termos técnicos","Checklist para saber o que entender primeiro","Apuração Assistida e Nota de Débito e Crédito","Material educacional e informativo, com atualizações conforme mudanças relevantes"].map(x=><li key={x}><CheckCircle2/>{x}</li>)}
+   </ul>
+   <a className="ref-green-btn" href="#oferta">ACESSAR AGORA</a>
+   <div className="ref-delivery">Você recebe tudo na hora, direto no WhatsApp e no e-mail</div>
+   <small>Materiais e Marcas Registrados no INPI</small>
+  </section>
+  <section className="ref-gallery">
+   <h2>VEJA COMO A REFORMA TRIBUTÁRIA FICA MAIS FÁCIL QUANDO ESTÁ ORGANIZADA VISUALMENTE</h2>
+   <img className="ref-gallery-main" src={gallery[0]} alt="Demonstração do material"/>
+   <div className="ref-gallery-row">{gallery.slice(1).map((src,i)=><img key={src} src={src} alt={`Mapa visual ${i+1}`}/>)}</div>
+   <p>O Mapa Fácil da Reforma Tributária foi pensado para transformar um assunto técnico em um material mais simples de visualizar.</p>
+  </section>
+  <section className="ref-features">
+   <h2>O MAPA FÁCIL DA REFORMA TRIBUTÁRIA POSSUI:</h2>
+   <div className="ref-feature-grid">
+    {[["▤","Mapas mentais prontos","Você não precisa montar resumos do zero. Os principais temas da Reforma já estão organizados em mapas visuais para facilitar sua compreensão."],["◈","Explicação visual dos novos tributos","IBS, CBS e Imposto Seletivo apresentados de forma mais clara, para você entender o papel de cada um sem se perder em termos técnicos."],["▧","Conteúdo organizado por temas","Visão geral, transição, impactos na rotina contábil, documentos fiscais, obrigações, regimes específicos e termos técnicos separados de forma lógica."],["⇩","Arquivos Organizados","Tudo organizado para você estudar e entender da maneira correta. Materiais prontos para estudar."]].map(([ic,t,d])=><article key={t}><span>{ic}</span><div><h3>{t}</h3><p>{d}</p></div></article>)}
+   </div>
+   <a className="ref-green-btn" href="#oferta">QUERO O MAPA FÁCIL DA REFORMA TRIBUTÁRIA</a>
+  </section>
+  <section className="ref-blue-callout">
+   <h2>ENTENDA A REFORMA TRIBUTÁRIA DE UMA MANEIRA MAIS SIMPLES E ORGANIZADA</h2>
+   <ul>{["Pare de perder tempo tentando organizar tudo sozinho","Entenda IBS, CBS e Imposto Seletivo com mais clareza","Veja como os principais pontos da Reforma se conectam","Ganhe segurança para acompanhar conversas sobre o tema","Acompanhe atualizações relevantes sem ficar perdido no excesso de informação"].map(x=><li key={x}>{x}</li>)}</ul>
+   <a className="ref-green-btn" href="#oferta">QUERO ACESSAR AGORA E USAR HOJE</a>
+  </section>
+  <section className="ref-photo-strip">{lifestyle.map(src=><img key={src} src={src} alt="Material sendo estudado"/> )}</section>
+  <section className="ref-urgency"><h2>QUANTO TEMPO VOCÊ AINDA VAI PERDER TENTANDO ENTENDER A REFORMA TRIBUTÁRIA EM CONTEÚDOS SOLTOS?</h2><p>Aproveite a oferta por tempo limitado</p><a className="ref-green-btn" href="#oferta">QUERO ACESSAR AGORA E USAR HOJE</a></section>
+  <section className="ref-ideal"><h2>ESTE MATERIAL É IDEAL PARA VOCÊ QUE DESEJA</h2><div className="ref-ideal-grid">{ideal.map(([t,d])=><article key={t}><CheckCircle2/><div><h3>{t}</h3><p>{d}</p></div></article>)}</div></section>
+  <section className="ref-receive">
+   <h2>TUDO O QUE VOCÊ VAI RECEBER</h2>
+   <div className="ref-access-tag">ACESSO IMEDIATO</div>
+   <div className="ref-receive-card"><h3>TUDO FOI ORGANIZADO PARA SER SIMPLES, VISUAL E FÁCIL DE CONSULTAR.</h3><p>Após a compra, você recebe acesso imediato aos materiais digitais organizados para estudar, revisar e consultar sempre que precisar.</p><img src={cover} alt="Conteúdo principal"/><ul>{["Mapa Fácil da Reforma Tributária","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Apuração Assistida Explicada","Quando Fazer Nota de Débito e Crédito","Imposto Seletivo","Transição da Reforma","Impactos na rotina contábil e fiscal","Documentos fiscais e obrigações","Simples Nacional, MEI e regimes específicos","Termos técnicos traduzidos","Mapas mentais organizados por tema","Atualizações conforme mudanças relevantes da Reforma"].map(x=><li key={x}><Check/>{x}</li>)}</ul></div>
+   <h2 className="ref-more-title">E NÃO PARA POR AÍ...<br/>TEM MAIS!</h2><h3>Você também vai receber...</h3><div className="ref-bonus-label">🔥 8 BÔNUS EXCLUSIVOS</div>
+   <div className="ref-bonus-grid">{bonuses.map(([t,d,img],i)=><article key={t}><img src={img} alt={t}/><h3>{t}</h3><p>{d}</p><ul>{(i===0?["IBS, CBS e Imposto Seletivo explicados","Termos técnicos traduzidos","Consulta rápida sempre que surgir dúvida"]:i===1?["Tabela de CST","Tabela de cClassTrib","Tabela de cIndOp","Tabela de cCredPres"]:i===2?["Evita excesso de informação","Ajuda a organizar o raciocínio","Facilita sua primeira visão geral"]:i===3?["Evita excesso de informação","Ajuda a organizar o raciocínio"]:i===4?["Fases da implementação","Principais períodos de mudança","Visão organizada da transição"]:i===5?["Preenchimento correto nas Notas Fiscais","Acompanhamento por etapa","Conferência dos campos nos XMLs"]:i===6?["Sistema atual x novo sistema","Mudanças principais em destaque","Mais facilidade para comparar"]:["Guia de NF-e","Guia de NFS-e","Guia de CT-e","Guia de NFC-e"]).map(v=><li key={v}><Check/>{v}</li>)}</ul><span>Valor: <s>R$27</s> GRÁTIS</span></article>)}</div>
+  </section>
+  <section className="ref-pricing" id="oferta">
+   <div className="ref-last-chance">🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE</div><h2>ESCOLHA A OPÇÃO IDEAL<br/>PARA VOCÊ</h2>
+   <div className="ref-price-grid">
+    <article className="ref-price-card"><h3>PLANO BÁSICO</h3><img src="https://materialseguro.site/wp-content/uploads/2026/07/MockupDemonstrativo.webp" alt="Plano básico"/><p>Você recebe:</p><ul><li><Check/>Mapa Fácil da Reforma Tributária</li><li><Check/>Acesso imediato pela área de membros</li></ul><small>de R$57,90 por:</small><strong>R$27,90</strong><a className="ref-green-btn" href={basic} target="_blank" rel="noreferrer">QUERO SOMENTE O BÁSICO</a></article>
+    <div className="ref-price-aside">92% das pessoas aproveitam a oferta abaixo:</div>
+    <article className="ref-price-card ref-complete"><div className="ref-best">⚡ MAIS VENDIDO</div><div className="ref-last-chance">🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE</div><h3>PLANO COMPLETO</h3><img src={cover} alt="Plano completo"/><b className="ref-4x">⚡ 4x mais conteúdos</b><ul>{["Mapa Fácil da Reforma Tributária","Mapas mentais sobre os principais pontos da Reforma","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Imposto Seletivo explicado visualmente","Transição da Reforma","Atualizações conforme mudanças relevantes","Simples Nacional, MEI e regimes específicos","Documentos fiscais e obrigações",...bonuses.map(([t])=>"🎁 "+t)].map(x=><li key={x}><Check/>{x}</li>)}</ul><small>de R$77,90 por:</small><strong>R$37,90</strong><a className="ref-green-btn" href={complete} target="_blank" rel="noreferrer">QUERO O PLANO COMPLETO</a><div className="ref-payments">Compra segura • Hotmart</div></article>
+   </div>
+   <div className="ref-saving"><b>UM ÚNICO MAPA PODE ECONOMIZAR HORAS TENTANDO ENTENDER A REFORMA POR CONTEÚDOS SOLTOS.</b><p>Todo o resto vira clareza para estudar, revisar e acompanhar as mudanças.</p></div>
+  </section>
+  <section className="ref-testimonials"><h2>VEJA O QUE NOSSOS CLIENTES ESTÃO DIZENDO</h2><p>Leia os depoimentos de quem já tomou a decisão certa.</p><div className="ref-testimonial-grid">
+   {[["https://materialseguro.site/wp-content/uploads/2026/07/3-3.webp","Mariana S.","Auxiliar Fiscal","Eu via todo mundo falando de IBS, CBS e transição, mas parecia tudo muito técnico. Com o material visual, consegui entender a lógica da Reforma sem precisar ficar pulando de vídeo em vídeo."],["https://materialseguro.site/wp-content/uploads/2026/07/2-1.png","Lucas R.","Estudante de Ciências Contábeis - UNIVEM","O que mais me ajudou foi ver os assuntos em mapas. Antes eu lia sobre Reforma Tributária e ficava perdido. Agora consigo entender melhor o que muda e como os principais pontos se conectam."],["https://materialseguro.site/wp-content/uploads/2026/07/1-3.webp","Renata M.","Contadora","O material deixou a Reforma muito mais simples de explicar. Gostei principalmente do glossário e da linha do tempo, porque ajudam a visualizar os termos e as etapas sem complicação."]].map(([img,n,role,quote])=><article key={n}><div className="ref-review-head"><img src={img} alt=""/><div><b>{n}</b><small>{role}</small><span>★★★★★</span></div></div><p>{quote}</p></article>)}</div><a className="ref-green-btn" href="#oferta">QUERO MEU ACESSO AGORA</a></section>
+  <section className="ref-guarantee"><img src="https://materialseguro.site/wp-content/uploads/2026/06/Selo7dias-1024x683.webp" alt="Garantia de 7 dias"/><div><h2>GARANTIA DE 7 DIAS: O RISCO FICA DO NOSSO LADO</h2><p>Isso significa que, durante esse tempo, se você achar que:</p><ul><li>o material não deixou a Reforma Tributária mais clara para você</li><li>os conteúdos não ajudaram você a entender os principais pontos da Reforma</li><li>ou simplesmente não quiser continuar com o produto</li></ul><p>👉 você pode solicitar o reembolso. Sem burocracia. Sem explicação obrigatória.</p><p>Essa garantia existe porque acreditamos no valor prático do material. Você não está comprando mais um conteúdo solto sobre Reforma Tributária. Está comprando mapas mentais, materiais visuais e conteúdos organizados para facilitar seu entendimento.</p></div></section>
+  <section className="ref-steps"><h2>COMO É O ACESSO</h2><small>(PASSO A PASSO)</small><div>{[[ "🛒","Conclua sua compra","Após o pagamento, seu acesso é liberado automaticamente."],["🎉","Entre na área de membros","Você recebe os dados para acessar a área de membros, onde todo o material fica organizado."],["📂","Baixe os arquivos","Dentro do material, você encontra os mapas mentais, glossário visual, checklist e bônus organizados por tema."],["📈","Estude pelo Celular/Tablet ou Imprima","Use os materiais para estudar, revisar, acompanhar mudanças e ganhar mais clareza."]].map(([ic,t,d])=><article key={t}><span>{ic}</span><h3>{t}</h3><p>{d}</p></article>)}</div><a className="ref-green-btn" href="#oferta">QUERO MEU ACESSO AGORA</a></section>
+  <section className="ref-faq"><h2>PERGUNTAS<br/>FREQUENTES</h2><div>{faqs.map(([q,a])=><details key={q}><summary>{q}<ChevronDown/></summary><p>{a}</p></details>)}</div></section>
+  <footer className="ref-footer"><b>Direitos Reservados</b><p>Este site não é afiliado ao Facebook™, Instagram™, Google™ ou qualquer outra plataforma mencionada. Todos os direitos sobre a obra “Mapa Fácil da Reforma Tributária” são reservados aos seus titulares.</p><p>A reprodução não autorizada desta publicação, no todo ou em parte, por quaisquer meios, constitui violação dos direitos autorais.</p></footer>
+  <a className="ref-sticky" href="#oferta">QUERO ACESSAR AGORA <ArrowRight/></a>
+ </main>;
 }
