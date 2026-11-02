@@ -11,18 +11,37 @@ export const Route = createFileRoute("/")({
 });
 
 const cover = "https://materialseguro.site/wp-content/uploads/2026/07/MockupCompleto-1.webp";
+const previewImages = [
+  "https://materialseguro.site/wp-content/uploads/2026/07/2.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/3-1.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/4.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/5.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/6.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/7.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/MockupDemonstrativo.webp",
+];
+const bonusImages = [
+  "https://materialseguro.site/wp-content/uploads/2026/07/GlossarioMockup2-768x960.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/1WEBP-768x576.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/Checklist-O-Que-Entender-Primeiro-819x1024.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/2WEBP-1024x683.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/LinhadoTempo-1024x768.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/3WEBP-819x1024.webp",
+  "https://materialseguro.site/wp-content/uploads/2026/07/QuadroAnteseDepois-1024x768.png",
+  "https://materialseguro.site/wp-content/uploads/2026/07/Mockup-1024x768.png",
+];
 const basicCheckout = "https://pay.hotmart.com/B106933353W?checkoutMode=10";
 const completeCheckout = "https://pay.hotmart.com/J106917128D?checkoutMode=10";
 
 const bonuses = [
-  { n: "01", title: "Glossário Visual da Reforma Tributária", desc: "Consulte os principais termos da Reforma com explicações diretas, sem ficar perdido no juridiquês.", icon: BookOpen },
-  { n: "02", title: "Tabela pronta de CST, cClassTrib, cIndOp e cCredPres", desc: "Uma tabela organizada para facilitar a consulta dos códigos e classificações.", icon: Table2 },
-  { n: "03", title: "Checklist: O Que Entender Primeiro", desc: "Saiba quais assuntos priorizar e tenha um caminho mais claro para começar.", icon: ClipboardCheck },
-  { n: "04", title: "Planilha Calculadora de IBS/CBS", desc: "Uma planilha de apoio para simular cálculos de IBS e CBS com mais praticidade.", icon: Calculator },
-  { n: "05", title: "Linha do Tempo Visual", desc: "Visualize as fases e os principais períodos de transição da Reforma Tributária.", icon: CalendarDays },
-  { n: "06", title: "Gabarito de preenchimento do IBS/CBS na Nota Fiscal", desc: "Consulte os campos e etapas envolvidos no preenchimento dos documentos fiscais.", icon: FileText },
-  { n: "07", title: "Quadro Antes x Depois da Reforma", desc: "Compare o modelo atual com o novo sistema e identifique as principais mudanças.", icon: ArrowRight },
-  { n: "08", title: "Guia de emissão de documentos fiscais", desc: "Material de apoio sobre NF-e, NFC-e, CT-e e NFS-e, com orientações para o cenário de 2026.", icon: Download },
+  { n: "01", image: bonusImages[0], title: "Glossário Visual da Reforma Tributária", desc: "Consulte os principais termos da Reforma com explicações diretas, sem ficar perdido no juridiquês.", icon: BookOpen },
+  { n: "02", image: bonusImages[1], title: "Tabela pronta de CST, cClassTrib, cIndOp e cCredPres", desc: "Uma tabela organizada para facilitar a consulta dos códigos e classificações.", icon: Table2 },
+  { n: "03", image: bonusImages[2], title: "Checklist: O Que Entender Primeiro", desc: "Saiba quais assuntos priorizar e tenha um caminho mais claro para começar.", icon: ClipboardCheck },
+  { n: "04", image: bonusImages[3], title: "Planilha Calculadora de IBS/CBS", desc: "Uma planilha de apoio para simular cálculos de IBS e CBS com mais praticidade.", icon: Calculator },
+  { n: "05", image: bonusImages[4], title: "Linha do Tempo Visual", desc: "Visualize as fases e os principais períodos de transição da Reforma Tributária.", icon: CalendarDays },
+  { n: "06", image: bonusImages[5], title: "Gabarito de preenchimento do IBS/CBS na Nota Fiscal", desc: "Consulte os campos e etapas envolvidos no preenchimento dos documentos fiscais.", icon: FileText },
+  { n: "07", image: bonusImages[6], title: "Quadro Antes x Depois da Reforma", desc: "Compare o modelo atual com o novo sistema e identifique as principais mudanças.", icon: ArrowRight },
+  { n: "08", image: bonusImages[7], title: "Guia de emissão de documentos fiscais", desc: "Material de apoio sobre NF-e, NFC-e, CT-e e NFS-e, com orientações para o cenário de 2026.", icon: Download },
 ];
 
 const faqs = [
@@ -39,7 +58,7 @@ const faqs = [
 function SalesPage() {
   return (
     <main className="sales-page">
-      <div className="top-strip"><Zap size={14} fill="currentColor" /> MATERIAL DIGITAL • ACESSO APÓS A CONFIRMAÇÃO DO PAGAMENTO</div>
+      <div className="top-strip"><Zap size={14} fill="currentColor" /> ⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE</div>
       <header className="site-header">
         <a href="#inicio" className="brand"><span className="brand-mark">MF</span><span>MAPA FÁCIL<small>REFORMA TRIBUTÁRIA</small></span></a>
         <a className="header-cta" href="#oferta">Ver planos <ArrowRight size={16}/></a>
@@ -47,16 +66,16 @@ function SalesPage() {
 
       <section className="hero section-wrap" id="inicio">
         <div className="hero-copy">
-          <div className="eyebrow"><span className="eyebrow-dot"/> MATERIAL VISUAL E PRÁTICO</div>
+          <div className="eyebrow"><span className="eyebrow-dot"/> MAPA FÁCIL DA REFORMA TRIBUTÁRIA</div>
           <h1>Entenda a Reforma Tributária <em>sem se perder</em> em leis e explicações complicadas.</h1>
-          <p className="hero-lead">Tenha IBS, CBS, Imposto Seletivo, transição e documentos fiscais organizados em mapas visuais para estudar e consultar quando precisar.</p>
+          <p className="hero-lead">Material feito para entender IBS, CBS, Imposto Seletivo, como calcular, Notas Fiscais, Apuração Assistida, Nota de Débito e Crédito e as principais mudanças de forma simples, visual e organizada.</p>
           <ul className="check-list hero-checks">
             <li><CheckCircle2/> Mapas mentais prontos e organizados por tema</li>
             <li><CheckCircle2/> Explicações visuais dos novos tributos</li>
-            <li><CheckCircle2/> Conteúdo para consultar no seu ritmo</li>
+            <li><CheckCircle2/> Como ficam Simples Nacional, Lucro Presumido e Lucro Real</li><li><CheckCircle2/> Cálculos de IBS e CBS, Apuração Assistida e Nota de Débito e Crédito</li><li><CheckCircle2/> Glossário visual e checklist para saber por onde começar</li>
           </ul>
           <a className="button button-primary" href="#oferta">QUERO ACESSAR O MATERIAL <ArrowRight size={18}/></a>
-          <div className="secure-note"><LockKeyhole size={14}/> Compra processada com segurança pela Hotmart</div>
+          <div className="secure-note"><LockKeyhole size={14}/> Compra segura • Material digital • Acesso após a confirmação</div>
         </div>
         <div className="hero-visual">
           <div className="visual-glow"/>
@@ -107,7 +126,7 @@ function SalesPage() {
         <div className="section-wrap">
           <div className="section-heading light"><div className="eyebrow">VOCÊ RECEBE NO PLANO COMPLETO</div><h2>O material principal + <em>8 bônus exclusivos</em></h2><p>Mais recursos para consultar e organizar seus estudos.</p></div>
           <div className="bonus-grid">
-            {bonuses.map((bonus)=>{const Icon=bonus.icon;return <article className="bonus-card" key={bonus.n}><div className="bonus-top"><span>BÔNUS {bonus.n}</span><Gift size={18}/></div><div className="bonus-icon"><Icon size={22}/></div><h3>{bonus.title}</h3><p>{bonus.desc}</p><div className="bonus-free"><span>INCLUSO</span><b>GRÁTIS</b></div></article>})}
+            {bonuses.map((bonus)=>{const Icon=bonus.icon;return <article className="bonus-card" key={bonus.n}><div className="bonus-top"><span>BÔNUS {bonus.n}</span><Gift size={18}/></div><div className="bonus-image"><img src={bonus.image} alt={bonus.title}/></div><div className="bonus-icon"><Icon size={22}/></div><h3>{bonus.title}</h3><p>{bonus.desc}</p><div className="bonus-free"><span>INCLUSO</span><b>GRÁTIS</b></div></article>})}
           </div>
           <div className="bonus-bottom"><Gift size={18}/> Os 8 bônus estão incluídos no Plano Completo, sem cobrança adicional.</div>
         </div>
@@ -117,7 +136,7 @@ function SalesPage() {
         <div className="section-heading"><div className="eyebrow">ESCOLHA SEU ACESSO</div><h2>Qual opção faz mais sentido <em>para você?</em></h2><p>Escolha seu plano e conclua a compra no ambiente seguro da Hotmart.</p></div>
         <div className="pricing-grid">
           <article className="price-card">
-            <div className="plan-name">PLANO BÁSICO</div><h3>Mapa Fácil</h3><p className="plan-desc">Para ter acesso ao material principal e começar a organizar seus estudos.</p>
+            <img className="plan-cover" src="https://materialseguro.site/wp-content/uploads/2026/07/MockupBasico.webp" alt="Mockup do Plano Básico"/><div className="plan-name">PLANO BÁSICO</div><h3>Mapa Fácil</h3><p className="plan-desc">Para ter acesso ao material principal e começar a organizar seus estudos.</p>
             <div className="price-old">De R$ 57,90 por</div><div className="price"><span>R$</span>27<small>,90</small></div><div className="price-note">Pagamento à vista</div>
             <div className="plan-divider"/>
             <ul className="plan-list"><li><Check/> Mapa Fácil da Reforma Tributária</li><li><Check/> Mapas mentais e temas principais</li><li><Check/> Acesso à área de membros</li></ul>
@@ -126,7 +145,7 @@ function SalesPage() {
           </article>
           <article className="price-card featured">
             <div className="popular-tag"><Zap size={14} fill="currentColor"/> PLANO MAIS COMPLETO</div>
-            <div className="plan-name">PLANO COMPLETO</div><h3>Mapa Fácil + 8 Bônus</h3><p className="plan-desc">O pacote completo para estudar, revisar e consultar os principais materiais.</p>
+            <img className="plan-cover" src={cover} alt="Mockup do Plano Completo"/><div className="plan-name">PLANO COMPLETO</div><h3>Mapa Fácil + 8 Bônus</h3><p className="plan-desc">O pacote completo para estudar, revisar e consultar os principais materiais.</p>
             <div className="price-old">De R$ 77,90 por</div><div className="price"><span>R$</span>37<small>,90</small></div><div className="price-note">Pagamento à vista</div>
             <div className="plan-divider"/>
             <ul className="plan-list"><li><Check/> Tudo do Plano Básico</li><li><Check/> Glossário Visual da Reforma</li><li><Check/> Tabelas CST, cClassTrib, cIndOp e cCredPres</li><li><Check/> Checklist do que entender primeiro</li><li><Check/> Planilha Calculadora de IBS/CBS</li><li><Check/> Linha do Tempo Visual</li><li><Check/> Gabarito IBS/CBS na Nota Fiscal</li><li><Check/> Quadro Antes x Depois</li><li><Check/> Guia de emissão de documentos fiscais</li></ul>
