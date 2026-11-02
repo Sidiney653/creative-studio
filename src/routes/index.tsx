@@ -52,7 +52,7 @@ const faqs = [
 ];
 function SalesPage() {
  return <main className="ref-page">
-  <div className="ref-top">⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE</div>
+  <div className="ref-top">⚡ OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div>
   <section className="ref-hero">
    <div className="ref-brand">MAPA FÁCIL DA REFORMA TRIBUTÁRIA</div>
    <h1>Mapa Fácil da Reforma Tributária</h1>
@@ -96,11 +96,11 @@ function SalesPage() {
    <div className="ref-bonus-grid">{bonuses.map(([t,d,img],i)=><article key={t}><img src={img} alt={t}/><h3>{t}</h3><p>{d}</p><ul>{(i===0?["IBS, CBS e Imposto Seletivo explicados","Termos técnicos traduzidos","Consulta rápida sempre que surgir dúvida"]:i===1?["Tabela de CST","Tabela de cClassTrib","Tabela de cIndOp","Tabela de cCredPres"]:i===2?["Evita excesso de informação","Ajuda a organizar o raciocínio","Facilita sua primeira visão geral"]:i===3?["Evita excesso de informação","Ajuda a organizar o raciocínio"]:i===4?["Fases da implementação","Principais períodos de mudança","Visão organizada da transição"]:i===5?["Preenchimento correto nas Notas Fiscais","Acompanhamento por etapa","Conferência dos campos nos XMLs"]:i===6?["Sistema atual x novo sistema","Mudanças principais em destaque","Mais facilidade para comparar"]:["Guia de NF-e","Guia de NFS-e","Guia de CT-e","Guia de NFC-e"]).map(v=><li key={v}><Check/>{v}</li>)}</ul><span>Valor: <s>R$27</s> GRÁTIS</span></article>)}</div>
   </section>
   <section className="ref-pricing" id="oferta">
-   <div className="ref-last-chance">🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE</div><h2>ESCOLHA A OPÇÃO IDEAL<br/>PARA VOCÊ</h2>
+   <div className="ref-last-chance">🔥 OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div><h2>ESCOLHA A OPÇÃO IDEAL<br/>PARA VOCÊ</h2>
    <div className="ref-price-grid">
     <article className="ref-price-card"><h3>PLANO BÁSICO</h3><img src="https://materialseguro.site/wp-content/uploads/2026/07/MockupDemonstrativo.webp" alt="Plano básico"/><p>Você recebe:</p><ul><li><Check/>Mapa Fácil da Reforma Tributária</li><li><Check/>Acesso imediato pela área de membros</li></ul><small>de R$57,90 por:</small><strong>R$27,90</strong><a className="ref-green-btn" href={basic} target="_blank" rel="noreferrer">QUERO SOMENTE O BÁSICO</a></article>
     <div className="ref-price-aside">92% das pessoas aproveitam a oferta abaixo:</div>
-    <article className="ref-price-card ref-complete"><div className="ref-best">⚡ MAIS VENDIDO</div><div className="ref-last-chance">🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE</div><h3>PLANO COMPLETO</h3><img src={cover} alt="Plano completo"/><b className="ref-4x">⚡ 4x mais conteúdos</b><ul>{["Mapa Fácil da Reforma Tributária","Mapas mentais sobre os principais pontos da Reforma","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Imposto Seletivo explicado visualmente","Transição da Reforma","Atualizações conforme mudanças relevantes","Simples Nacional, MEI e regimes específicos","Documentos fiscais e obrigações",...bonuses.map(([t])=>"🎁 "+t)].map(x=><li key={x}><Check/>{x}</li>)}</ul><small>de R$77,90 por:</small><strong>R$37,90</strong><a className="ref-green-btn" href={complete} target="_blank" rel="noreferrer">QUERO O PLANO COMPLETO</a><div className="ref-payments">Compra segura • Hotmart</div></article>
+    <article className="ref-price-card ref-complete"><div className="ref-best">⚡ MAIS VENDIDO</div><div className="ref-last-chance">🔥 OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div><h3>PLANO COMPLETO</h3><img src={cover} alt="Plano completo"/><b className="ref-4x">⚡ 4x mais conteúdos</b><ul>{["Mapa Fácil da Reforma Tributária","Mapas mentais sobre os principais pontos da Reforma","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Imposto Seletivo explicado visualmente","Transição da Reforma","Atualizações conforme mudanças relevantes","Simples Nacional, MEI e regimes específicos","Documentos fiscais e obrigações",...bonuses.map(([t])=>"🎁 "+t)].map(x=><li key={x}><Check/>{x}</li>)}</ul><small>de R$77,90 por:</small><strong>R$37,90</strong><a className="ref-green-btn" href={complete} target="_blank" rel="noreferrer">QUERO O PLANO COMPLETO</a><div className="ref-payments">Compra segura • Hotmart</div></article>
    </div>
    <div className="ref-saving"><b>UM ÚNICO MAPA PODE ECONOMIZAR HORAS TENTANDO ENTENDER A REFORMA POR CONTEÚDOS SOLTOS.</b><p>Todo o resto vira clareza para estudar, revisar e acompanhar as mudanças.</p></div>
   </section>
