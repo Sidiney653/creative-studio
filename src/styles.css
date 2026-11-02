@@ -294,3 +294,18 @@
 .price-card .plan-name{margin-top:0}
 @media(max-width:800px){.reference-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reference-gallery-grid img{max-height:310px}.bonus-card{min-height:360px}}
 @media(max-width:540px){.reference-gallery{padding-top:55px;padding-bottom:58px}.reference-gallery-grid{grid-template-columns:1fr 1fr;gap:9px}.reference-gallery-grid figure{padding:5px}.reference-gallery-grid img{max-height:250px}.reference-benefits{padding:58px 0}.benefits-list{grid-template-columns:1fr;gap:8px}.benefits-list p{font-size:11px;padding:12px 13px}.bonus-image{height:115px}.bonus-card{min-height:335px}.plan-cover{height:145px}}
+
+
+.contents-section{background:#fbf9f4}
+.contents-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+.contents-lead{font-size:13px;line-height:1.8;color:#778393}
+.contents-cover{display:block;width:100%;max-width:420px;margin:25px auto 0;filter:drop-shadow(0 15px 20px #172b4920)}
+.contents-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.contents-list p{display:flex;align-items:flex-start;gap:9px;margin:0;padding:12px;background:#fff;border:1px solid #eee9df;border-radius:8px;color:#4b586a;font-size:11px;line-height:1.5}
+.contents-list svg{width:16px;height:16px;color:#b18438;flex:none}
+.reference-urgency{background:#f5ecd9;text-align:center;padding:65px 0}
+.reference-urgency .eyebrow{justify-content:center}
+.reference-urgency h2{max-width:760px;margin:15px auto;font-size:clamp(29px,3.8vw,41px)}
+.reference-urgency p{color:#778393;font-size:13px;margin:0 0 20px}
+@media(max-width:800px){.contents-grid{grid-template-columns:1fr;gap:25px}.contents-cover{max-width:340px}.contents-list{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.contents-list{grid-template-columns:1fr}.reference-urgency{padding:52px 0}.reference-urgency h2{font-size:31px}}
