@@ -58,7 +58,7 @@ const faqs = [
 function SalesPage() {
   return (
     <main className="sales-page">
-      <div className="top-strip"><Zap size={14} fill="currentColor" /> ⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE</div>
+      <div className="top-strip"><Zap size={14} fill="currentColor" /> ⚡ OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div>
       <header className="site-header">
         <a href="#inicio" className="brand"><span className="brand-mark">MF</span><span>MAPA FÁCIL<small>REFORMA TRIBUTÁRIA</small></span></a>
         <a className="header-cta" href="#oferta">Ver planos <ArrowRight size={16}/></a>
@@ -132,7 +132,7 @@ function SalesPage() {
         </div>
       </section>
       <section className="reference-urgency">
-        <div className="section-wrap"><div className="eyebrow">OFERTA ESPECIAL POR TEMPO LIMITADO</div><h2>Quanto tempo você ainda vai perder tentando entender a Reforma Tributária em conteúdos soltos?</h2><p>Aproveite a condição especial e escolha seu acesso.</p><a className="button button-primary" href="#oferta">QUERO ACESSAR AGORA <ArrowRight size={18}/></a></div>
+        <div className="section-wrap"><div className="eyebrow">OFERTA ESPECIAL</div><h2>Quanto tempo você ainda vai perder tentando entender a Reforma Tributária em conteúdos soltos?</h2><p>Confira a condição promocional e escolha seu acesso.</p><a className="button button-primary" href="#oferta">QUERO ACESSAR AGORA <ArrowRight size={18}/></a></div>
       </section>\n      <section className="section section-dark">
         <div className="section-wrap">
           <div className="section-heading light"><div className="eyebrow">VOCÊ RECEBE NO PLANO COMPLETO</div><h2>O material principal + <em>8 bônus exclusivos</em></h2><p>Mais recursos para consultar e organizar seus estudos.</p></div>
