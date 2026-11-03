@@ -200,3 +200,8 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0}.ref-page{--na
 .ref-product-showcase--single .ref-main-cover{width:100%;max-width:none;transform:none;border-radius:0;box-shadow:none;object-fit:contain}
 .ref-price-card>img.ref-offer-mockup{display:block;width:100%;max-width:500px;height:auto;object-fit:contain;margin:0 auto 24px;border-radius:0;box-shadow:none}
 @media(max-width:640px){.ref-product-showcase--single{width:100%;max-width:400px;margin:25px auto 30px}.ref-product-showcase--single .ref-main-cover{max-width:100%;margin:0}}
+.ref-depoimentos{background:#fff;padding:70px 24px;text-align:center}
+.ref-depoimentos .ref-carousel{max-width:1140px}
+.ref-depoimentos .ref-carousel-slide{flex-basis:calc((100% - 48px)/3)}
+.ref-depoimentos .ref-carousel-slide img{aspect-ratio:auto;object-fit:contain;border-radius:16px;box-shadow:0 8px 24px #0b2f5b1f}
+@media (max-width:767px){.ref-depoimentos{padding:50px 16px}.ref-depoimentos .ref-carousel-slide{flex-basis:92%}}

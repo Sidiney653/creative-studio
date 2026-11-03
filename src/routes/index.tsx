@@ -8,7 +8,8 @@ const mockup = "/assets/mockup-principal.png";
 const asset = (name: string) => `/assets/produto/${name}.webp`;
 const cover = asset("principal-01");
 const gallery = Array.from({ length: 19 }, (_, i) => `/assets/carrossel/pagina-${String(i + 1).padStart(2, "0")}.webp`);
-const bonusSamples = ["bonus1-01", "bonus1-03", "bonus1-06", "bonus2-01", "bonus2-04", "bonus2-10", "bonus3-01", "bonus3-03", "bonus3-07"].map(asset);
+const depoimentos = Object.values(import.meta.glob<{ url: string }>("@/assets/depoimentos/*.asset.json", { eager: true, import: "default" })).map(a => a.url);
+const bonusSamples =  ["bonus1-01", "bonus1-03", "bonus1-06", "bonus2-01", "bonus2-04", "bonus2-10", "bonus3-01", "bonus3-03", "bonus3-07"].map(asset);
 const bonuses = [
   { title: 'Checklist “O Que Entender Primeiro”', pages: 10, cover: asset("bonus1-01"), description: "Saiba por onde começar e avance do entendimento geral até a preparação da operação, em uma sequência de estudo visual.", items: ["Base da Reforma e identificação dos novos tributos", "Incidência, créditos e débitos", "Transição e análise do regime tributário", "Documentos, sistemas e preparação da operação"] },
   { title: "Linha do Tempo Visual da Reforma Tributária", pages: 20, cover: asset("bonus2-01"), description: "Visualize as etapas de 2026 a 2033 e organize o que estudar e acompanhar em cada fase da transição.", items: ["Visão geral do cronograma de implementação", "Fase de testes e mudanças por ano", "Tributos que saem e tributos que entram", "Impactos em documentos, sistemas e rotinas"] },
@@ -141,6 +142,12 @@ function SalesPage() {
         <div className="ref-payments"><ShieldCheck aria-hidden="true"/> Compra segura · Garantia de 7 dias</div>
       </article></div>
       <div className="ref-saving"><b>DO PRIMEIRO CONTATO À REVISÃO DOS PROCESSOS</b><p>Comece pelo checklist, estude o guia principal, acompanhe a linha do tempo e revise os 15 erros fiscais.</p></div>
+    </section>
+
+    <section className="ref-depoimentos">
+      <h2>QUEM JÁ ESTÁ ESTUDANDO COM O MAPA</h2>
+      <p className="ref-section-intro">Arraste para o lado ou use as setas para ver os depoimentos.</p>
+      <AutoCarousel images={depoimentos} label="Depoimentos de clientes"/>
     </section>
 
     <section className="ref-study-path">
