@@ -56,7 +56,7 @@ const faqs = [
 
 function SalesPage() {
   return <main className="ref-page">
-    <div className="ref-top">⚡ 2026 JÁ COMEÇOU · ESTUDE A REFORMA ANTES DA PRÓXIMA FASE</div>
+    <div className="ref-top">⚡ 2026 JÁ COMEÇOU · ESTUDE AGORA</div>
     <section className="ref-hero">
       <div className="ref-brand">GUIA NA PRÁTICA · REFORMA TRIBUTÁRIA</div>
       <h1>Mapa Fácil da Reforma Tributária</h1>
