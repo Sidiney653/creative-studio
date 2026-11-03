@@ -171,6 +171,6 @@ function SalesPage() {
     ].map(({Icon,title,text})=><article key={title}><Icon className="ref-step-svg" aria-hidden="true"/><h3>{title}</h3><p>{text}</p></article>)}</div><a className="ref-green-btn" href="#oferta">QUERO MEU PACOTE COMPLETO</a></section>
     <section className="ref-faq"><h2>PERGUNTAS FREQUENTES</h2><div>{faqs.map(([question,answer])=><details key={question}><summary>{question}<ChevronDown aria-hidden="true"/></summary><p>{answer}</p></details>)}</div></section>
     <footer className="ref-footer"><p>© 2026 <strong>Guia na Prática</strong>. Todos os direitos reservados.</p><p>É proibida a reprodução ou distribuição, total ou parcial, deste material sem autorização prévia e expressa do Guia na Prática, ressalvadas as exceções previstas em lei. Protegido pela Lei nº 9.610/1998 (Lei de Direitos Autorais), especialmente o art. 29. A violação de direitos autorais pode configurar crime nos termos do art. 184 do Código Penal.</p><p>Material educacional e informativo. Consulte a legislação vigente, as fontes oficiais e orientação profissional antes de aplicar regras tributárias ao seu caso.</p></footer>
-    <a className="ref-sticky" href="#oferta">QUERO O PACOTE COMPLETO <ArrowRight aria-hidden="true"/></a>
+    <a className="ref-sticky" href="#oferta">QUERO COMEÇAR AGORA <ArrowRight aria-hidden="true"/></a>
   </main>;
 }
