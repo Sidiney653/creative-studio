@@ -1,115 +1,169 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, CheckCircle2, ArrowRight, ShieldCheck, Download, Smartphone, BookOpen, Calculator, FileText, Gift, Clock3, ChevronDown, Zap, Mail, Printer, Users } from "lucide-react";
+import { AutoCarousel } from "@/components/sales/AutoCarousel";
+import { ArrowRight, BookOpen, CalendarDays, Check, CheckCircle2, ChevronDown, Download, FileCheck2, ListChecks, ShieldCheck, TriangleAlert } from "lucide-react";
 
 export const Route = createFileRoute("/")({ component: SalesPage });
-
-const cover = "https://materialseguro.site/wp-content/uploads/2026/07/MockupCompleto-1.webp";
-const basic = "https://pay.hotmart.com/B106933353W?checkoutMode=10";
-const complete = "https://pay.hotmart.com/J106917128D?checkoutMode=10";
-const gallery = [
- "https://materialseguro.site/wp-content/uploads/2026/07/MockupDemonstrativo.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/2.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/3-1.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/4.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/5.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/6.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/7.webp",
-];
-const lifestyle = [
- "https://materialseguro.site/wp-content/uploads/2026/07/1-2.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/3-2.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/7-1.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/9.webp",
- "https://materialseguro.site/wp-content/uploads/2026/07/10.webp",
-];
+const checkoutUrl = "https://checkout.wiven.com.br/checkout/cmvy9ira100k001og5qkt8tcv?offer=SFC56YZ";
+const mockup = "/assets/mockup-principal.png";
+const asset = (name: string) => `/assets/produto/${name}.webp`;
+const cover = asset("principal-01");
+const gallery = Array.from({ length: 19 }, (_, i) => `/assets/carrossel/pagina-${String(i + 1).padStart(2, "0")}.webp`);
+const bonusSamples = ["bonus1-01", "bonus1-03", "bonus1-06", "bonus2-01", "bonus2-04", "bonus2-10", "bonus3-01", "bonus3-03", "bonus3-07"].map(asset);
 const bonuses = [
- ["Glossário Visual da Reforma Tributária","Um material simples para consultar os principais termos da Reforma sem ficar perdido no juridiquês.","https://materialseguro.site/wp-content/uploads/2026/07/GlossarioMockup2-768x960.webp"],
- ["Tabela pronta com CST, cClassTrib, cIndOp e cCredPres","Uma tabela pronta para consulta rápida dos principais códigos da Reforma.","https://materialseguro.site/wp-content/uploads/2026/07/1WEBP-768x576.webp"],
- ["Checklist “O Que Entender Primeiro”","Uma lista prática para saber quais temas priorizar antes de se aprofundar na Reforma.","https://materialseguro.site/wp-content/uploads/2026/07/Checklist-O-Que-Entender-Primeiro-819x1024.webp"],
- ["Planilha Calculadora de IBS/CBS","Uma planilha pronta para calcular IBS/CBS, de forma visual e organizada.","https://materialseguro.site/wp-content/uploads/2026/07/2WEBP-1024x683.webp"],
- ["Linha do Tempo Visual","Um material visual para entender a transição da Reforma Tributária com mais clareza.","https://materialseguro.site/wp-content/uploads/2026/07/LinhadoTempo-1024x768.webp"],
- ["Gabarito de preenchimento do IBS/CBS na Nota Fiscal","Um gabarito para verificar o que preencher na nota fiscal e conferir os campos.","https://materialseguro.site/wp-content/uploads/2026/07/3WEBP-819x1024.webp"],
- ["Quadro Antes x Depois da Reforma","Um comparativo simples para visualizar o que muda entre o sistema atual e o novo modelo tributário.","https://materialseguro.site/wp-content/uploads/2026/07/QuadroAnteseDepois-1024x768.png"],
- ["Guia de Emissão de NF-e, NFC-e, CT-e e NFS-e","Um guia para entender a emissão dos principais documentos fiscais.","https://materialseguro.site/wp-content/uploads/2026/07/Mockup-1024x768.png"]
+  { title: 'Checklist “O Que Entender Primeiro”', pages: 10, cover: asset("bonus1-01"), description: "Saiba por onde começar e avance do entendimento geral até a preparação da operação, em uma sequência de estudo visual.", items: ["Base da Reforma e identificação dos novos tributos", "Incidência, créditos e débitos", "Transição e análise do regime tributário", "Documentos, sistemas e preparação da operação"] },
+  { title: "Linha do Tempo Visual da Reforma Tributária", pages: 20, cover: asset("bonus2-01"), description: "Visualize as etapas de 2026 a 2033 e organize o que estudar e acompanhar em cada fase da transição.", items: ["Visão geral do cronograma de implementação", "Fase de testes e mudanças por ano", "Tributos que saem e tributos que entram", "Impactos em documentos, sistemas e rotinas"] },
+  { title: "Os 15 Erros Fiscais que Você Deve Evitar na Reforma Tributária", pages: 20, cover: asset("bonus3-01"), description: "Identifique pontos de atenção nos processos fiscais e use as orientações visuais para organizar sua revisão.", items: ["Classificação tributária, cadastros e códigos", "Emissão de documentos e parametrização do ERP", "Créditos, apuração assistida e conciliação", "Plano de ação e checklist final de revisão"] },
+];
+const topics = [
+  "Visão geral da Reforma e comparação entre os modelos",
+  "IBS, CBS e Imposto Seletivo explicados visualmente",
+  "Base de cálculo e exemplo didático de cálculo em 2026",
+  "Não cumulatividade, créditos, débitos e apuração assistida",
+  "Notas de débito e crédito e documentos fiscais",
+  "Cronograma de transição de 2026 a 2033",
+  "Simples Nacional, MEI e rotinas contábeis e fiscais",
+  "Destino, local da operação, exportações e importações",
+  "Split payment, cashback e regimes diferenciados",
+  "Regimes específicos, imunidades e operações especiais",
+];
+const heroChecks = [
+  "Produto principal com 64 páginas ilustradas",
+  "IBS, CBS, Imposto Seletivo e cálculos em explicações visuais",
+  "Apuração assistida, notas de débito e crédito e documentos fiscais",
+  "Simples Nacional, MEI e impactos nas rotinas contábeis e fiscais",
+  "3 bônus: checklist de estudo, linha do tempo e guia dos 15 erros fiscais",
+  "114 páginas ao todo, em 4 materiais digitais em PDF",
 ];
 const ideal = [
- ["Entender a Reforma Tributária sem começar por leis extensas","Compreender os principais pontos sem travar em textos técnicos logo de início."],
- ["Organizar tudo o que está sendo falado no mercado","IBS, CBS, Imposto Seletivo e transição em uma sequência mais clara."],
- ["Estudar sem depender de lives longas","Acessar mapas visuais e revisar os temas de forma mais rápida."],
- ["Saber por onde começar","Seguir um caminho simples sem ficar pulando de conteúdo em conteúdo."],
- ["Ganhar mais segurança para falar sobre o tema","Acompanhar conversas, reuniões e conteúdos com mais clareza."],
- ["Traduzir termos técnicos com facilidade","Consultar conceitos importantes em uma linguagem mais simples."]
+  ["Entender a Reforma sem começar por textos extensos", "Mapas visuais para ter uma visão geral antes de aprofundar os temas."],
+  ["Saber por onde começar a estudar", "Um checklist que organiza a sequência do básico à preparação prática."],
+  ["Revisar IBS, CBS e os principais conceitos", "Explicações ilustradas, comparativos e exemplos para consultar."],
+  ["Visualizar as etapas da transição", "Uma linha do tempo para acompanhar o cronograma e os pontos de atenção."],
+  ["Organizar a revisão dos processos fiscais", "Um guia com 15 erros, situações de risco e cuidados de conferência."],
+  ["Estudar e consultar no seu ritmo", "PDFs para ler no celular, tablet ou computador e imprimir se desejar."],
 ];
 const faqs = [
- ["Preciso ser contador para entender o conteúdo?","Não. O material foi criado para profissionais contábeis, fiscais, estudantes e também para quem precisa entender a Reforma sem começar por leis extensas ou explicações complicadas."],
- ["O acesso é imediato após a compra?","Sim. Após a confirmação do pagamento, você recebe as informações de acesso para consultar os materiais."],
- ["O material explica IBS, CBS e Imposto Seletivo?","Sim. Esses temas fazem parte do conteúdo principal e são apresentados de forma visual para facilitar o entendimento."],
- ["Vou receber os bônus também?","Os bônus fazem parte do Plano Completo. Nele, você recebe o Mapa Fácil da Reforma Tributária + todos os bônus exclusivos."],
- ["O material será atualizado?","Sim. Como a Reforma Tributária ainda pode ter mudanças relevantes, o material poderá receber atualizações conforme necessário."],
- ["Por quanto tempo terei acesso ao material?","Você terá acesso ao material digital adquirido para consultar, revisar e estudar sempre que precisar."],
- ["Esse produto substitui uma consultoria contábil, fiscal ou jurídica?","Não. O Mapa Fácil da Reforma Tributária é um material educacional e informativo. Ele não substitui orientação profissional individual."],
- ["Posso pagar no cartão ou Pix?","Sim. As formas de pagamento disponíveis aparecem na página de checkout no momento da compra."]
+  ["O que está incluído no pacote de R$ 47,00?", "Você recebe o Mapa Fácil da Reforma Tributária, com 64 páginas, e três bônus: Checklist “O Que Entender Primeiro” (10 páginas), Linha do Tempo Visual da Reforma Tributária (20 páginas) e Os 15 Erros Fiscais que Você Deve Evitar na Reforma Tributária (20 páginas). São quatro PDFs, com 114 páginas ao todo."],
+  ["Preciso ser contador para estudar o material?", "O conteúdo usa mapas mentais e explicações ilustradas para facilitar o estudo. Pode ser usado por profissionais contábeis e fiscais, estudantes e empreendedores que desejam compreender os temas apresentados."],
+  ["Vou receber um produto físico?", "Não. O pacote é digital, em PDF. Você pode ler os arquivos no celular, tablet ou computador e imprimir se desejar."],
+  ["O material explica cálculos de IBS e CBS?", "Sim. O produto principal aborda base de cálculo, a lógica de incidência e um exemplo didático de cálculo em 2026. O pacote não inclui uma planilha calculadora."],
+  ["O guia aborda Simples Nacional e MEI?", "Sim. O material principal inclui páginas sobre Simples Nacional e MEI, além de rotinas contábeis e fiscais, documentos e regimes específicos."],
+  ["Os três bônus estão incluídos no preço?", "Sim. O pagamento único de R$ 47,00 inclui o produto principal e os três bônus apresentados nesta página."],
+  ["Este material substitui orientação contábil ou jurídica?", "Não. Os PDFs são educacionais e informativos. Para aplicar regras a uma operação concreta, consulte a legislação vigente, as fontes oficiais e o profissional responsável."],
+  ["Como funciona a garantia?", "Você tem 7 dias após a compra para solicitar o reembolso, conforme as condições da plataforma de pagamento."],
 ];
+
 function SalesPage() {
- return <main className="ref-page">
-  <div className="ref-top">⚡ OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div>
-  <section className="ref-hero">
-   <div className="ref-brand">MAPA FÁCIL DA REFORMA TRIBUTÁRIA</div>
-   <h1>Mapa Fácil da Reforma Tributária</h1>
-   <h2>Material visual para entender IBS, CBS, Imposto Seletivo e as principais mudanças de forma simples, visual e organizada</h2>
-   <img className="ref-main-cover" src={cover} alt="Kit Mapa Fácil da Reforma Tributária"/>
-   <h3>Entenda a Reforma Tributária sem se perder em leis extensas, lives longas ou explicações complicadas</h3>
-   <p>Material feito para entender IBS, CBS, Imposto Seletivo, como calcular, Notas Fiscais, Apuração Assistida, Nota de Débito e Crédito e as principais mudanças de forma simples, visual e organizada.</p>
-   <ul className="ref-checks">
-    {["Arquivos digitais organizados para consulta rápida","Mapas mentais visuais sobre os principais pontos da Reforma Tributária","IBS, CBS, Imposto Seletivo e transição explicados com mais clareza","Como ficam os Regimes Tributários como Simples Nacional, Lucro Presumido e Lucro Real","Cálculos de IBS e CBS explicados","Glossário visual para traduzir termos técnicos","Checklist para saber o que entender primeiro","Apuração Assistida e Nota de Débito e Crédito","Material educacional e informativo, com atualizações conforme mudanças relevantes"].map(x=><li key={x}><CheckCircle2/>{x}</li>)}
-   </ul>
-   <a className="ref-green-btn" href="#oferta">ACESSAR AGORA</a>
-   <div className="ref-delivery">Você recebe tudo na hora, direto no WhatsApp e no e-mail</div>
-   <small>Materiais e Marcas Registrados no INPI</small>
-  </section>
-  <section className="ref-gallery">
-   <h2>VEJA COMO A REFORMA TRIBUTÁRIA FICA MAIS FÁCIL QUANDO ESTÁ ORGANIZADA VISUALMENTE</h2>
-   <img className="ref-gallery-main" src={gallery[0]} alt="Demonstração do material"/>
-   <div className="ref-gallery-row">{gallery.slice(1).map((src,i)=><img key={src} src={src} alt={`Mapa visual ${i+1}`}/>)}</div>
-   <p>O Mapa Fácil da Reforma Tributária foi pensado para transformar um assunto técnico em um material mais simples de visualizar.</p>
-  </section>
-  <section className="ref-features">
-   <h2>O MAPA FÁCIL DA REFORMA TRIBUTÁRIA POSSUI:</h2>
-   <div className="ref-feature-grid">
-    {[["▤","Mapas mentais prontos","Você não precisa montar resumos do zero. Os principais temas da Reforma já estão organizados em mapas visuais para facilitar sua compreensão."],["◈","Explicação visual dos novos tributos","IBS, CBS e Imposto Seletivo apresentados de forma mais clara, para você entender o papel de cada um sem se perder em termos técnicos."],["▧","Conteúdo organizado por temas","Visão geral, transição, impactos na rotina contábil, documentos fiscais, obrigações, regimes específicos e termos técnicos separados de forma lógica."],["⇩","Arquivos Organizados","Tudo organizado para você estudar e entender da maneira correta. Materiais prontos para estudar."]].map(([ic,t,d])=><article key={t}><span>{ic}</span><div><h3>{t}</h3><p>{d}</p></div></article>)}
-   </div>
-   <a className="ref-green-btn" href="#oferta">QUERO O MAPA FÁCIL DA REFORMA TRIBUTÁRIA</a>
-  </section>
-  <section className="ref-blue-callout">
-   <h2>ENTENDA A REFORMA TRIBUTÁRIA DE UMA MANEIRA MAIS SIMPLES E ORGANIZADA</h2>
-   <ul>{["Pare de perder tempo tentando organizar tudo sozinho","Entenda IBS, CBS e Imposto Seletivo com mais clareza","Veja como os principais pontos da Reforma se conectam","Ganhe segurança para acompanhar conversas sobre o tema","Acompanhe atualizações relevantes sem ficar perdido no excesso de informação"].map(x=><li key={x}>{x}</li>)}</ul>
-   <a className="ref-green-btn" href="#oferta">QUERO ACESSAR AGORA E USAR HOJE</a>
-  </section>
-  <section className="ref-photo-strip">{lifestyle.map(src=><img key={src} src={src} alt="Material sendo estudado"/> )}</section>
-  <section className="ref-urgency"><h2>QUANTO TEMPO VOCÊ AINDA VAI PERDER TENTANDO ENTENDER A REFORMA TRIBUTÁRIA EM CONTEÚDOS SOLTOS?</h2><p>Aproveite a oferta por tempo limitado</p><a className="ref-green-btn" href="#oferta">QUERO ACESSAR AGORA E USAR HOJE</a></section>
-  <section className="ref-ideal"><h2>ESTE MATERIAL É IDEAL PARA VOCÊ QUE DESEJA</h2><div className="ref-ideal-grid">{ideal.map(([t,d])=><article key={t}><CheckCircle2/><div><h3>{t}</h3><p>{d}</p></div></article>)}</div></section>
-  <section className="ref-receive">
-   <h2>TUDO O QUE VOCÊ VAI RECEBER</h2>
-   <div className="ref-access-tag">ACESSO IMEDIATO</div>
-   <div className="ref-receive-card"><h3>TUDO FOI ORGANIZADO PARA SER SIMPLES, VISUAL E FÁCIL DE CONSULTAR.</h3><p>Após a compra, você recebe acesso imediato aos materiais digitais organizados para estudar, revisar e consultar sempre que precisar.</p><img src={cover} alt="Conteúdo principal"/><ul>{["Mapa Fácil da Reforma Tributária","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Apuração Assistida Explicada","Quando Fazer Nota de Débito e Crédito","Imposto Seletivo","Transição da Reforma","Impactos na rotina contábil e fiscal","Documentos fiscais e obrigações","Simples Nacional, MEI e regimes específicos","Termos técnicos traduzidos","Mapas mentais organizados por tema","Atualizações conforme mudanças relevantes da Reforma"].map(x=><li key={x}><Check/>{x}</li>)}</ul></div>
-   <h2 className="ref-more-title">E NÃO PARA POR AÍ...<br/>TEM MAIS!</h2><h3>Você também vai receber...</h3><div className="ref-bonus-label">🔥 8 BÔNUS EXCLUSIVOS</div>
-   <div className="ref-bonus-grid">{bonuses.map(([t,d,img],i)=><article key={t}><img src={img} alt={t}/><h3>{t}</h3><p>{d}</p><ul>{(i===0?["IBS, CBS e Imposto Seletivo explicados","Termos técnicos traduzidos","Consulta rápida sempre que surgir dúvida"]:i===1?["Tabela de CST","Tabela de cClassTrib","Tabela de cIndOp","Tabela de cCredPres"]:i===2?["Evita excesso de informação","Ajuda a organizar o raciocínio","Facilita sua primeira visão geral"]:i===3?["Evita excesso de informação","Ajuda a organizar o raciocínio"]:i===4?["Fases da implementação","Principais períodos de mudança","Visão organizada da transição"]:i===5?["Preenchimento correto nas Notas Fiscais","Acompanhamento por etapa","Conferência dos campos nos XMLs"]:i===6?["Sistema atual x novo sistema","Mudanças principais em destaque","Mais facilidade para comparar"]:["Guia de NF-e","Guia de NFS-e","Guia de CT-e","Guia de NFC-e"]).map(v=><li key={v}><Check/>{v}</li>)}</ul><span>Valor: <s>R$27</s> GRÁTIS</span></article>)}</div>
-  </section>
-  <section className="ref-pricing" id="oferta">
-   <div className="ref-last-chance">🔥 OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div><h2>ESCOLHA A OPÇÃO IDEAL<br/>PARA VOCÊ</h2>
-   <div className="ref-price-grid">
-    <article className="ref-price-card"><h3>PLANO BÁSICO</h3><img src="https://materialseguro.site/wp-content/uploads/2026/07/MockupDemonstrativo.webp" alt="Plano básico"/><p>Você recebe:</p><ul><li><Check/>Mapa Fácil da Reforma Tributária</li><li><Check/>Acesso imediato pela área de membros</li></ul><small>de R$57,90 por:</small><strong>R$27,90</strong><a className="ref-green-btn" href={basic} target="_blank" rel="noreferrer">QUERO SOMENTE O BÁSICO</a></article>
-    <div className="ref-price-aside">92% das pessoas aproveitam a oferta abaixo:</div>
-    <article className="ref-price-card ref-complete"><div className="ref-best">⚡ MAIS VENDIDO</div><div className="ref-last-chance">🔥 OFERTA ESPECIAL • CONDIÇÃO PROMOCIONAL</div><h3>PLANO COMPLETO</h3><img src={cover} alt="Plano completo"/><b className="ref-4x">⚡ 4x mais conteúdos</b><ul>{["Mapa Fácil da Reforma Tributária","Mapas mentais sobre os principais pontos da Reforma","Visão geral da Reforma Tributária","IBS explicado visualmente","CBS explicado visualmente","Imposto Seletivo explicado visualmente","Transição da Reforma","Atualizações conforme mudanças relevantes","Simples Nacional, MEI e regimes específicos","Documentos fiscais e obrigações",...bonuses.map(([t])=>"🎁 "+t)].map(x=><li key={x}><Check/>{x}</li>)}</ul><small>de R$77,90 por:</small><strong>R$37,90</strong><a className="ref-green-btn" href={complete} target="_blank" rel="noreferrer">QUERO O PLANO COMPLETO</a><div className="ref-payments">Compra segura • Hotmart</div></article>
-   </div>
-   <div className="ref-saving"><b>UM ÚNICO MAPA PODE ECONOMIZAR HORAS TENTANDO ENTENDER A REFORMA POR CONTEÚDOS SOLTOS.</b><p>Todo o resto vira clareza para estudar, revisar e acompanhar as mudanças.</p></div>
-  </section>
-  <section className="ref-testimonials"><h2>VEJA O QUE NOSSOS CLIENTES ESTÃO DIZENDO</h2><p>Leia os depoimentos de quem já tomou a decisão certa.</p><div className="ref-testimonial-grid">
-   {[["https://materialseguro.site/wp-content/uploads/2026/07/3-3.webp","Mariana S.","Auxiliar Fiscal","Eu via todo mundo falando de IBS, CBS e transição, mas parecia tudo muito técnico. Com o material visual, consegui entender a lógica da Reforma sem precisar ficar pulando de vídeo em vídeo."],["https://materialseguro.site/wp-content/uploads/2026/07/2-1.png","Lucas R.","Estudante de Ciências Contábeis - UNIVEM","O que mais me ajudou foi ver os assuntos em mapas. Antes eu lia sobre Reforma Tributária e ficava perdido. Agora consigo entender melhor o que muda e como os principais pontos se conectam."],["https://materialseguro.site/wp-content/uploads/2026/07/1-3.webp","Renata M.","Contadora","O material deixou a Reforma muito mais simples de explicar. Gostei principalmente do glossário e da linha do tempo, porque ajudam a visualizar os termos e as etapas sem complicação."]].map(([img,n,role,quote])=><article key={n}><div className="ref-review-head"><img src={img} alt=""/><div><b>{n}</b><small>{role}</small><span>★★★★★</span></div></div><p>{quote}</p></article>)}</div><a className="ref-green-btn" href="#oferta">QUERO MEU ACESSO AGORA</a></section>
-  <section className="ref-guarantee"><img src="https://materialseguro.site/wp-content/uploads/2026/06/Selo7dias-1024x683.webp" alt="Garantia de 7 dias"/><div><h2>GARANTIA DE 7 DIAS: O RISCO FICA DO NOSSO LADO</h2><p>Isso significa que, durante esse tempo, se você achar que:</p><ul><li>o material não deixou a Reforma Tributária mais clara para você</li><li>os conteúdos não ajudaram você a entender os principais pontos da Reforma</li><li>ou simplesmente não quiser continuar com o produto</li></ul><p>👉 você pode solicitar o reembolso. Sem burocracia. Sem explicação obrigatória.</p><p>Essa garantia existe porque acreditamos no valor prático do material. Você não está comprando mais um conteúdo solto sobre Reforma Tributária. Está comprando mapas mentais, materiais visuais e conteúdos organizados para facilitar seu entendimento.</p></div></section>
-  <section className="ref-steps"><h2>COMO É O ACESSO</h2><small>(PASSO A PASSO)</small><div>{[[ "🛒","Conclua sua compra","Após o pagamento, seu acesso é liberado automaticamente."],["🎉","Entre na área de membros","Você recebe os dados para acessar a área de membros, onde todo o material fica organizado."],["📂","Baixe os arquivos","Dentro do material, você encontra os mapas mentais, glossário visual, checklist e bônus organizados por tema."],["📈","Estude pelo Celular/Tablet ou Imprima","Use os materiais para estudar, revisar, acompanhar mudanças e ganhar mais clareza."]].map(([ic,t,d])=><article key={t}><span>{ic}</span><h3>{t}</h3><p>{d}</p></article>)}</div><a className="ref-green-btn" href="#oferta">QUERO MEU ACESSO AGORA</a></section>
-  <section className="ref-faq"><h2>PERGUNTAS<br/>FREQUENTES</h2><div>{faqs.map(([q,a])=><details key={q}><summary>{q}<ChevronDown/></summary><p>{a}</p></details>)}</div></section>
-  <footer className="ref-footer"><b>Direitos Reservados</b><p>Este site não é afiliado ao Facebook™, Instagram™, Google™ ou qualquer outra plataforma mencionada. Todos os direitos sobre a obra “Mapa Fácil da Reforma Tributária” são reservados aos seus titulares.</p><p>A reprodução não autorizada desta publicação, no todo ou em parte, por quaisquer meios, constitui violação dos direitos autorais.</p></footer>
-  <a className="ref-sticky" href="#oferta">QUERO ACESSAR AGORA <ArrowRight/></a>
- </main>;
+  return <main className="ref-page">
+    <div className="ref-top">⚡ PACOTE COMPLETO · PRODUTO PRINCIPAL + 3 BÔNUS</div>
+    <section className="ref-hero">
+      <div className="ref-brand">GUIA NA PRÁTICA · REFORMA TRIBUTÁRIA</div>
+      <h1>Mapa Fácil da Reforma Tributária</h1>
+      <h2><span className="ref-title-black">Entenda os principais pontos</span> <span className="ref-title-blue">da Reforma Tributária</span> de forma simples, visual e organizada</h2>
+      <div className="ref-product-showcase ref-product-showcase--single"><img className="ref-main-cover" src={mockup} alt="Mockup do Mapa Fácil da Reforma Tributária" fetchPriority="high"/></div>
+      <h3>Pare de pular entre conteúdos soltos. Organize seu estudo em mapas mentais e explicações ilustradas.</h3>
+      <p>Um guia visual de 64 páginas sobre os novos tributos, a transição e os impactos na rotina — acompanhado de três bônus para orientar seu estudo e sua revisão.</p>
+      <ul className="ref-checks">{heroChecks.map(text=><li key={text}><CheckCircle2 aria-hidden="true"/>{text}</li>)}</ul>
+      <a className="ref-green-btn" href="#oferta">QUERO O PACOTE COMPLETO <ArrowRight aria-hidden="true"/></a>
+      <div className="ref-delivery">4 PDFs · 114 páginas ao todo · Pagamento único de R$ 47,00</div>
+      <small>Conteúdo educacional ilustrado para estudar, revisar e consultar.</small>
+    </section>
+
+    <section className="ref-gallery">
+      <h2>VEJA POR DENTRO DO SEU MATERIAL</h2>
+      <p className="ref-section-intro">Estas são páginas reais do Mapa Fácil da Reforma Tributária.</p>
+      <AutoCarousel images={gallery} label="Amostras reais do produto principal"/>
+      <p>Conceitos, comparativos e exemplos organizados visualmente para facilitar sua leitura.</p>
+    </section>
+
+    <section className="ref-features">
+      <h2>UM CAMINHO VISUAL PARA ORGANIZAR SEU ESTUDO</h2>
+      <div className="ref-feature-grid">
+        {[
+          { Icon: BookOpen, title: "64 páginas no guia principal", text: "Da visão geral da Reforma aos novos tributos, documentos, regimes e operações específicas." },
+          { Icon: ListChecks, title: "Saiba o que entender primeiro", text: "O checklist de 10 páginas apresenta uma sequência de estudo da base da Reforma até a preparação da operação." },
+          { Icon: CalendarDays, title: "Visualize a transição", text: "A linha do tempo de 20 páginas organiza o cronograma e os pontos de atenção de 2026 a 2033." },
+          { Icon: TriangleAlert, title: "Revise os pontos de atenção", text: "O bônus de 20 páginas apresenta 15 erros fiscais, cuidados de revisão e um plano prático de ação." },
+        ].map(({Icon,title,text})=><article key={title}><Icon className="ref-feature-svg" aria-hidden="true"/><div><h3>{title}</h3><p>{text}</p></div></article>)}
+      </div>
+      <a className="ref-green-btn" href="#oferta">QUERO ESTUDAR COM MAIS CLAREZA</a>
+    </section>
+
+    <section className="ref-blue-callout">
+      <h2>ENTENDA A LÓGICA ANTES DE SE PERDER NOS DETALHES</h2>
+      <ul>{["Comece pela visão geral e identifique IBS, CBS e Imposto Seletivo", "Entenda a lógica de créditos, débitos e apuração", "Visualize as fases da transição e os impactos nas rotinas", "Use os bônus para organizar o estudo e a revisão dos processos"].map(text=><li key={text}>{text}</li>)}</ul>
+      <a className="ref-green-btn" href="#oferta">QUERO MEU GUIA + 3 BÔNUS</a>
+    </section>
+    <section className="ref-demonstration">
+      <h2>CONHEÇA AS PÁGINAS DOS SEUS BÔNUS</h2>
+      <p className="ref-section-intro">Checklist de estudo, linha do tempo e pontos de atenção fiscal em materiais ilustrados.</p>
+      <AutoCarousel images={bonusSamples} label="Amostras reais dos três bônus"/>
+    </section>
+    <section className="ref-urgency">
+      <h2>POR ONDE COMEÇAR QUANDO PARECE QUE TUDO ESTÁ MUDANDO?</h2>
+      <p>Tenha uma sequência de estudo e materiais visuais para voltar aos temas sempre que precisar.</p>
+      <a className="ref-green-btn" href="#oferta">QUERO ORGANIZAR MEU ESTUDO</a>
+    </section>
+    <section className="ref-ideal"><h2>ESTE MATERIAL É PARA VOCÊ QUE DESEJA</h2><div className="ref-ideal-grid">{ideal.map(([title,text])=><article key={title}><CheckCircle2 aria-hidden="true"/><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
+
+    <section className="ref-receive">
+      <h2>TUDO O QUE VOCÊ VAI RECEBER</h2>
+      <div className="ref-access-tag">PRODUTO PRINCIPAL · 64 PÁGINAS</div>
+      <div className="ref-receive-card">
+        <h3>MAPA FÁCIL DA REFORMA TRIBUTÁRIA</h3>
+        <p>Material digital ilustrado com mapas mentais e explicações visuais sobre os principais temas da Reforma.</p>
+        <img className="ref-real-cover" src={cover} alt="Capa real do produto principal" loading="lazy"/>
+        <ul>{topics.map(text=><li key={text}><Check aria-hidden="true"/>{text}</li>)}</ul>
+      </div>
+      <h2 className="ref-more-title">E VOCÊ TAMBÉM RECEBE...</h2>
+      <h3>Três materiais para complementar seu estudo</h3>
+      <div className="ref-bonus-label">🎁 3 BÔNUS INCLUÍDOS</div>
+      <div className="ref-bonus-grid ref-bonus-grid--three">{bonuses.map((bonus,i)=><article key={bonus.title}>
+        <div className="ref-bonus-number">BÔNUS #{i+1} · {bonus.pages} PÁGINAS</div>
+        <img src={bonus.cover} alt={`Capa: ${bonus.title}`} loading="lazy"/>
+        <h3>{bonus.title}</h3><p>{bonus.description}</p>
+        <ul>{bonus.items.map(text=><li key={text}><Check aria-hidden="true"/>{text}</li>)}</ul>
+        <span>INCLUÍDO NO PACOTE</span>
+      </article>)}</div>
+    </section>
+
+    <section className="ref-pricing" id="oferta">
+      <div className="ref-last-chance">⚡ UM ÚNICO PACOTE COMPLETO</div>
+      <h2>SEU GUIA VISUAL<br/>+ OS 3 BÔNUS</h2>
+      <div className="ref-price-grid"><article className="ref-price-card ref-complete">
+        <div className="ref-best">PRODUTO PRINCIPAL + 3 BÔNUS</div>
+        <h3>PACOTE COMPLETO</h3>
+        <img className="ref-offer-mockup" src={mockup} alt="Mockup do pacote Mapa Fácil da Reforma Tributária" loading="lazy"/>
+        <b className="ref-4x">4 PDFs · 114 páginas ao todo</b>
+        <ul><li><Check aria-hidden="true"/>Mapa Fácil da Reforma Tributária — 64 páginas</li>{bonuses.map((bonus,i)=><li key={bonus.title}><Check aria-hidden="true"/>Bônus {i+1}: {bonus.title} — {bonus.pages} páginas</li>)}<li><Check aria-hidden="true"/>Leitura no celular, tablet ou computador</li><li><Check aria-hidden="true"/>Arquivos em PDF que você pode imprimir</li></ul>
+        <small>O pacote completo por apenas</small><strong>R$ 47,00</strong><p className="ref-one-payment">Pagamento único</p>
+        <a className="ref-green-btn" href={checkoutUrl}>QUERO MEU PACOTE COMPLETO <ArrowRight aria-hidden="true"/></a>
+        <div className="ref-payments"><ShieldCheck aria-hidden="true"/> Compra segura · Garantia de 7 dias</div>
+      </article></div>
+      <div className="ref-saving"><b>DO PRIMEIRO CONTATO À REVISÃO DOS PROCESSOS</b><p>Comece pelo checklist, estude o guia principal, acompanhe a linha do tempo e revise os 15 erros fiscais.</p></div>
+    </section>
+
+    <section className="ref-study-path">
+      <h2>UMA SEQUÊNCIA SIMPLES PARA APROVEITAR O PACOTE</h2>
+      <div>{[
+        ["1", "Organize seu ponto de partida", "Use o checklist para definir a ordem do estudo e entender os conceitos antes de aprofundar."],
+        ["2", "Estude com os mapas visuais", "Leia o material principal e consulte a linha do tempo para relacionar os assuntos às fases da transição."],
+        ["3", "Revise com mais atenção", "Use o guia dos 15 erros fiscais para identificar pontos de revisão em cadastros, documentos e processos."],
+      ].map(([n,title,text])=><article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      <a className="ref-green-btn" href="#oferta">QUERO COMEÇAR MEU ESTUDO</a>
+    </section>
+    <section className="ref-guarantee">
+      <div className="ref-guarantee-seal"><ShieldCheck aria-hidden="true"/><strong>7 DIAS</strong><span>DE GARANTIA</span></div>
+      <div><h2>7 DIAS PARA CONHECER O MATERIAL</h2><p>Acesse os PDFs, veja como os assuntos estão organizados e avalie se o pacote faz sentido para o seu estudo.</p><p>Se não quiser continuar com o produto, solicite o reembolso dentro de 7 dias após a compra, conforme as condições da plataforma de pagamento.</p></div>
+    </section>
+    <section className="ref-steps"><h2>COMO USAR SEUS MATERIAIS</h2><div>{[
+      {Icon: Download, title:"Acesse os quatro PDFs", text:"Após a confirmação da compra, siga as instruções de acesso da plataforma de pagamento."},
+      {Icon: ListChecks, title:"Comece pelo checklist", text:"Veja o que entender primeiro e organize seus próximos temas de estudo."},
+      {Icon: BookOpen, title:"Estude e consulte", text:"Abra os arquivos no celular, tablet ou computador. Você também pode imprimir."},
+      {Icon: FileCheck2, title:"Aplique à sua revisão", text:"Use os materiais como apoio educacional e confira as fontes oficiais antes de decisões fiscais."},
+    ].map(({Icon,title,text})=><article key={title}><Icon className="ref-step-svg" aria-hidden="true"/><h3>{title}</h3><p>{text}</p></article>)}</div><a className="ref-green-btn" href="#oferta">QUERO MEU PACOTE COMPLETO</a></section>
+    <section className="ref-faq"><h2>PERGUNTAS FREQUENTES</h2><div>{faqs.map(([question,answer])=><details key={question}><summary>{question}<ChevronDown aria-hidden="true"/></summary><p>{answer}</p></details>)}</div></section>
+    <footer className="ref-footer"><p>© 2026 <strong>Guia na Prática</strong>. Todos os direitos reservados.</p><p>É proibida a reprodução ou distribuição, total ou parcial, deste material sem autorização prévia e expressa do Guia na Prática, ressalvadas as exceções previstas em lei. Protegido pela Lei nº 9.610/1998 (Lei de Direitos Autorais), especialmente o art. 29. A violação de direitos autorais pode configurar crime nos termos do art. 184 do Código Penal.</p><p>Material educacional e informativo. Consulte a legislação vigente, as fontes oficiais e orientação profissional antes de aplicar regras tributárias ao seu caso.</p></footer>
+    <a className="ref-sticky" href="#oferta">QUERO O PACOTE DE R$ 47,00 <ArrowRight aria-hidden="true"/></a>
+  </main>;
 }
