@@ -205,3 +205,46 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0}.ref-page{--na
 .ref-depoimentos .ref-carousel-slide{flex-basis:calc((100% - 48px)/3)}
 .ref-depoimentos .ref-carousel-slide img{aspect-ratio:auto;object-fit:contain;border-radius:16px;box-shadow:0 8px 24px #0b2f5b1f}
 @media (max-width:767px){.ref-depoimentos{padding:50px 16px}.ref-depoimentos .ref-carousel-slide{flex-basis:92%}}
+
+/* Clean neutral color palette — colors only; preserve layout, copy and behavior. */
+.ref-page{--navy:#263449;--green:#526a9b;color:#263449;background:#fff}
+.ref-top{background:#f1f4f8;color:#344256}
+.ref-hero{background:#fff}
+.ref-brand{background:#f1f4f8;border-color:#e1e6ee;color:#526174}
+.ref-hero h1,.ref-title-black{color:#263449}
+.ref-hero h2,.ref-title-blue{color:#526a9b}
+.ref-green-btn{background:#526a9b;box-shadow:0 4px 0 #40557f}
+.ref-green-btn:hover{background:#405982}
+.ref-checks svg,.ref-feature-svg,.ref-ideal-grid svg,.ref-receive-card li svg,.ref-bonus-grid li svg,.ref-price-card li svg,.ref-step-svg{color:#526a9b}
+.ref-gallery,.ref-urgency,.ref-receive,.ref-guarantee{background:#f7f8fa}
+.ref-features,.ref-ideal,.ref-depoimentos,.ref-steps,.ref-faq{background:#fff}
+.ref-feature-grid article,.ref-ideal-grid article,.ref-bonus-grid article,.ref-study-path article{background:#fff;border-color:#e6eaf0}
+.ref-feature-grid p,.ref-ideal-grid p,.ref-section-intro,.ref-urgency p,.ref-faq details p,.ref-study-path p,.ref-steps p{color:#64748b}
+.ref-blue-callout{background:#eef2f7;color:#263449;border:1px solid #e2e8f0}
+.ref-blue-callout h2{color:#263449}
+.ref-blue-callout li:before{color:#526a9b}
+.ref-access-tag,.ref-best{background:#526a9b;color:#fff}
+.ref-receive-card{background:#fff;border-color:#e2e8f0}
+.ref-receive-card li{border-bottom-color:#edf0f4}
+.ref-bonus-label,.ref-last-chance{background:#e9edf5;color:#40557f}
+.ref-bonus-number{color:#526174}
+.ref-bonus-grid article>span{color:#526a9b;border-top-color:#e8ecf2}
+.ref-pricing{background:#f1f4f8}
+.ref-price-card{border-color:#cbd5e1;box-shadow:0 12px 36px rgba(38,52,73,.08)}
+.ref-4x{background:#eef2f7;color:#40557f}
+.ref-price-card>strong{color:#526a9b}
+.ref-saving{border-color:#e2e8f0;background:#fff}
+.ref-study-path article>span{background:#eef2f7;color:#40557f}
+.ref-guarantee-seal{border-color:#9aaac5;outline-color:#d8dfeb;color:#40557f;background:#fff}
+.ref-guarantee-seal svg{color:#526a9b}
+.ref-faq details{border-bottom-color:#e2e8f0}
+.ref-faq summary{color:#263449}
+.ref-footer{background:#202b3b;color:#d4dbe5}
+.ref-footer b{color:#fff}
+.ref-sticky{background:#526a9b;box-shadow:0 -3px 16px rgba(38,52,73,.12)}
+.ref-carousel-controls button{color:#40557f;border-color:#e2e8f0}
+.ref-carousel-controls button:hover{background:#eef2f7}
+.ref-carousel-counter{color:#64748b}
+.ref-guarantee p,.ref-guarantee li{color:#526174}
+#checkout-status{color:#263449}
+#checkout-status button{background:#526a9b}
