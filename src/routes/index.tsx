@@ -178,7 +178,10 @@ const faqs = [
     "O material aborda erros e riscos na adaptação?",
     "Sim. O produto principal apresenta orientações sobre cadastros, classificações, documentos, sistemas, créditos e processos.",
   ],
-  ["Os três bônus estão incluídos?", "Sim. Os três materiais apresentados nesta oferta estão incluídos."],
+  [
+    "Os três bônus estão incluídos?",
+    "Sim. Os três materiais apresentados nesta oferta estão incluídos.",
+  ],
   [
     "O Simulador calcula automaticamente?",
     "Não. Ele é um guia visual de simulação para ajudar você a organizar os dados e comparar cenários.",

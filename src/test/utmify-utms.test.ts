@@ -7,10 +7,15 @@ describe("UTMify UTMs", () => {
   it("loads UTMs and pixel once each, preserving the supplied attributes", () => {
     const scripts: Record<string, unknown>[] = [];
     const document = {
-      getElementById: (id: string) => scripts.find(script => script['id'] === id),
+      getElementById: (id: string) => scripts.find((script) => script["id"] === id),
       createElement: () => {
         const attributes: Record<string, string> = {};
-        return { attributes, setAttribute: (name: string, value: string) => { attributes[name] = value; } };
+        return {
+          attributes,
+          setAttribute: (name: string, value: string) => {
+            attributes[name] = value;
+          },
+        };
       },
       head: { appendChild: (script: Record<string, unknown>) => scripts.push(script) },
     };
@@ -21,9 +26,11 @@ describe("UTMify UTMs", () => {
       runInNewContext(UTMIFY_UTMS_SCRIPT, context);
     }
     expect(scripts).toHaveLength(2);
-    expect(window['pixelId']).toBe("6a7f1e9c8b84f3fcafe0d5dc");
-    expect(scripts.find(script => script['id'] === 'utmify-utms-source')).toMatchObject({
-      src: "https://cdn.utmify.com.br/scripts/utms/latest.js", async: true, defer: true,
+    expect(window["pixelId"]).toBe("6a7f1e9c8b84f3fcafe0d5dc");
+    expect(scripts.find((script) => script["id"] === "utmify-utms-source")).toMatchObject({
+      src: "https://cdn.utmify.com.br/scripts/utms/latest.js",
+      async: true,
+      defer: true,
       attributes: { "data-utmify-prevent-xcod-sck": "", "data-utmify-prevent-subids": "" },
     });
   });
