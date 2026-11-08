@@ -23,7 +23,6 @@ import {
   GuaranteeSection,
   StepsSection,
   FAQSection,
-  CTASection,
   FooterSection,
 } from "@/components/sales/sections";
 
@@ -402,7 +401,6 @@ function SalesPage() {
       <GuaranteeSection />
       <StepsSection />
       <FAQSection />
-      <CTASection />
       <FooterSection />
 
       <a className="ref-sticky" href="#oferta">
