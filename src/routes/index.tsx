@@ -18,7 +18,6 @@ import {
   GallerySection,
   SequenceSection,
   BeforeSection,
-  ShowcaseSection,
   DepoimentosSection,
   GuaranteeSection,
   StepsSection,
@@ -45,12 +44,6 @@ const depoimentos = Object.values(
     import: "default",
   }),
 ).map((a) => a.url);
-const bonusSamples = [
-  ...["bonus1-01", "bonus1-03", "bonus1-06"].map(asset),
-  "/assets/produto/bonus2-capa-simulador.png",
-  "/assets/produto/bonus3-capa-sos.png",
-];
-
 const bonuses = [
   {
     title: "Kit de Comunicados Prontos da Reforma Tributária",
@@ -396,7 +389,6 @@ function SalesPage() {
 
       <SequenceSection />
       <BeforeSection />
-      <ShowcaseSection gallery={gallery} bonusSamples={bonusSamples} />
       <DepoimentosSection depoimentos={depoimentos} />
       <GuaranteeSection />
       <StepsSection />
