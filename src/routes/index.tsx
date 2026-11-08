@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AutoCarousel } from "@/components/sales/AutoCarousel";
 import {
   ArrowRight,
   BookOpen,
@@ -14,7 +13,24 @@ import {
   TriangleAlert,
 } from "lucide-react";
 
+import {
+  HeroSection,
+  GallerySection,
+  SequenceSection,
+  BeforeSection,
+  ShowcaseSection,
+  DepoimentosSection,
+  GuaranteeSection,
+  StepsSection,
+  FAQSection,
+  CTASection,
+  FooterSection,
+} from "@/components/sales/sections";
+
+import { AutoCarousel } from "@/components/sales/AutoCarousel";
+
 export const Route = createFileRoute("/")({ component: SalesPage });
+
 const checkoutUrl =
   "https://checkout.wiven.com.br/checkout/cmvy9ira100k001og5qkt8tcv?offer=SFC56YZ";
 const mockup = "/assets/mockup-principal.png";
@@ -35,6 +51,7 @@ const bonusSamples = [
   "/assets/produto/bonus2-capa-simulador.png",
   "/assets/produto/bonus3-capa-sos.png",
 ];
+
 const bonuses = [
   {
     title: "Kit de Comunicados Prontos da Reforma Tributária",
@@ -126,14 +143,6 @@ const topics = [
   "Integração entre áreas",
   "Monitoramento e melhoria contínua",
 ];
-const heroChecks = [
-  "Novos tributos e transição",
-  "Cadastros e classificação fiscal",
-  "Documentos fiscais e sistemas",
-  "Créditos, preços e contratos",
-  "Processos, equipe e controles",
-  "3 bônus para complementar sua preparação",
-];
 const ideal = [
   [
     "Entender a Reforma sem começar por textos extensos",
@@ -160,86 +169,13 @@ const ideal = [
     "Materiais digitais para acessar pelo celular, tablet ou computador.",
   ],
 ];
-const faqs = [
-  [
-    "O que está incluído?",
-    "Você recebe o **Reforma Tributária Sem Erros** e três bônus: **Kit de Comunicados Prontos da Reforma Tributária**, **Simulador Visual de Preços e Lucros** e **SOS Nota Fiscal — Guia de Conferência**.",
-  ],
-  [
-    "Preciso ser contador para utilizar?",
-    "Não. O conteúdo foi organizado de forma visual e didática. Porém, decisões tributárias específicas devem ser avaliadas com base na legislação vigente e, quando necessário, com apoio profissional.",
-  ],
-  ["Vou receber algum produto físico?", "Não. Os materiais são digitais."],
-  [
-    "O produto principal fala sobre IBS e CBS?",
-    "Sim. O guia apresenta os novos tributos e outros pontos importantes da transição tributária.",
-  ],
-  [
-    "O material aborda erros e riscos na adaptação?",
-    "Sim. O produto principal apresenta orientações sobre cadastros, classificações, documentos, sistemas, créditos e processos.",
-  ],
-  [
-    "Os três bônus estão incluídos?",
-    "Sim. Os três materiais apresentados nesta oferta estão incluídos.",
-  ],
-  [
-    "O Simulador calcula automaticamente?",
-    "Não. Ele é um guia visual de simulação para ajudar você a organizar os dados e comparar cenários.",
-  ],
-  [
-    "O SOS Nota Fiscal ajuda na conferência?",
-    "Sim. Ele apresenta pontos de atenção para revisar informações de documentos fiscais antes da emissão.",
-  ],
-  [
-    "O material substitui um contador ou advogado?",
-    "Não. Os materiais têm finalidade educacional e informativa e não substituem análise técnica, contábil, fiscal ou jurídica.",
-  ],
-  ["O pagamento é mensal?", "Não. A compra é feita em pagamento único."],
-  [
-    "Como funciona a garantia?",
-    "Você tem 7 dias para acessar e avaliar os materiais, conforme as regras da plataforma de pagamento.",
-  ],
-];
 
 function SalesPage() {
   return (
     <main className="ref-page">
       <div className="ref-top">⚡ AS REGRAS JÁ MUDARAM · PREPARE-SE AGORA</div>
-      <section className="ref-hero">
-        <div className="ref-brand">GUIA PRÁTICO · REFORMA TRIBUTÁRIA</div>
-        <h1>Reforma Tributária Sem Erros</h1>
-        <h2>
-          Entenda as mudanças, identifique pontos de atenção e organize a preparação da sua empresa
-          para a nova rotina tributária.
-        </h2>
-        <div className="ref-product-showcase ref-product-showcase--single">
-          <img
-            className="ref-main-cover"
-            src={mockup}
-            alt="Mockup do Reforma Tributária Sem Erros"
-            fetchPriority="high"
-          />
-        </div>
-        <h3>
-          Pare de depender de informações soltas. Tenha um material visual e prático para entender o
-          que muda e o que precisa ser revisado.
-        </h3>
-        <ul className="ref-checks">
-          {heroChecks.map((text) => (
-            <li key={text}>
-              <CheckCircle2 aria-hidden="true" />
-              {text}
-            </li>
-          ))}
-        </ul>
-        <a className="ref-green-btn" href="#oferta">
-          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
-        </a>
-        <small>
-          Material educacional e informativo para estudar, revisar e organizar a adaptação da
-          empresa.
-        </small>
-      </section>
+
+      <HeroSection />
 
       <section className="ref-gallery">
         <h2>VEJA POR DENTRO DO SEU MATERIAL</h2>
@@ -459,222 +395,16 @@ function SalesPage() {
         </div>
       </section>
 
-      <section className="ref-sequence">
-        <h2>DO ENTENDIMENTO À ROTINA</h2>
-        <p className="ref-section-intro">Materiais para diferentes pontos da preparação</p>
-        <div>
-          {[
-            [
-              "1",
-              "ENTENDA",
-              "Comece pelo Reforma Tributária Sem Erros para conhecer as mudanças e os principais pontos de atenção.",
-            ],
-            [
-              "2",
-              "COMUNIQUE",
-              "Use os modelos prontos para alinhar clientes, fornecedores, equipe e diretoria.",
-            ],
-            [
-              "3",
-              "ANALISE",
-              "Use o Simulador Visual para comparar cenários de preço, custos, tributação, lucro e margem.",
-            ],
-            [
-              "4",
-              "CONFIRA",
-              "Use o SOS Nota Fiscal como apoio na revisão das informações antes da emissão.",
-            ],
-          ].map(([n, title, text]) => (
-            <article key={n}>
-              <span>{n}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-        <a className="ref-green-btn" href="#oferta">
-          QUERO COMEÇAR MINHA PREPARAÇÃO <ArrowRight aria-hidden="true" />
-        </a>
-      </section>
+      <SequenceSection />
+      <BeforeSection />
+      <ShowcaseSection gallery={gallery} bonusSamples={bonusSamples} />
+      <DepoimentosSection depoimentos={depoimentos} />
+      <GuaranteeSection />
+      <StepsSection />
+      <FAQSection />
+      <CTASection />
+      <FooterSection />
 
-      <section className="ref-before">
-        <h2>PREPARE-SE ANTES QUE OS ERROS VIREM RETRABALHO</h2>
-        <p className="ref-section-intro">Tenha referências visuais para consultar no dia a dia</p>
-        <p>Em vez de depender apenas de informações espalhadas, reúna em um só lugar:</p>
-        <ul>
-          {[
-            "Conteúdo para entender",
-            "Checklists para revisar",
-            "Comunicados para usar",
-            "Cenários para analisar",
-            "Guia para conferir notas fiscais",
-          ].map((text) => (
-            <li key={text}>
-              <Check aria-hidden="true" />
-              {text}
-            </li>
-          ))}
-        </ul>
-        <a className="ref-green-btn" href="#oferta">
-          QUERO TER TUDO ORGANIZADO <ArrowRight aria-hidden="true" />
-        </a>
-      </section>
-
-      <section className="ref-showcase">
-        <h2>VEJA OS MATERIAIS POR DENTRO</h2>
-        <p className="ref-section-intro">Você sabe exatamente o que está recebendo</p>
-        <AutoCarousel images={gallery} label="Páginas do produto principal" />
-        <AutoCarousel images={bonusSamples} label="Páginas dos bônus" />
-        <p>Mostrar exemplos de:</p>
-        <ul>
-          {[
-            "Novos tributos",
-            "Erros e pontos de atenção",
-            "Comunicados prontos",
-            "Preços e custos",
-            "Lucro e margem",
-            "Dados fiscais",
-            "NCM e CFOP",
-            "Conferência de documentos",
-          ].map((text) => (
-            <li key={text}>
-              <Check aria-hidden="true" />
-              {text}
-            </li>
-          ))}
-        </ul>
-        <a className="ref-green-btn" href="#oferta">
-          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
-        </a>
-      </section>
-
-      <section className="ref-depoimentos">
-        <h2>QUEM JÁ ESTÁ UTILIZANDO OS MATERIAIS</h2>
-        <p className="ref-section-intro">Veja a experiência de quem adquiriu</p>
-        <AutoCarousel images={depoimentos} label="Depoimentos de clientes" />
-        <a className="ref-green-btn" href="#oferta">
-          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
-        </a>
-      </section>
-
-      <section className="ref-guarantee">
-        <div className="ref-guarantee-seal">
-          <ShieldCheck aria-hidden="true" />
-          <strong>7 DIAS</strong>
-          <span>DE GARANTIA</span>
-        </div>
-        <div>
-          <h2>Conheça os materiais com tranquilidade</h2>
-          <p>
-            Acesse os conteúdos, confira como estão organizados e avalie se atendem ao que você
-            procurava.
-          </p>
-          <p>
-            Caso não queira continuar, solicite o reembolso dentro de 7 dias após a compra, conforme
-            as condições da plataforma de pagamento.
-          </p>
-        </div>
-        <a className="ref-green-btn" href="#oferta">
-          QUERO ACESSAR COM GARANTIA <ArrowRight aria-hidden="true" />
-        </a>
-      </section>
-
-      <section className="ref-steps">
-        <h2>COMO VOCÊ RECEBE</h2>
-        <p className="ref-section-intro">Acesso digital após a confirmação da compra</p>
-        <div>
-          {[
-            {
-              Icon: Download,
-              title: "01 — PAGAMENTO APROVADO",
-              text: "Após a confirmação do pagamento, siga as instruções enviadas pela plataforma.",
-            },
-            {
-              Icon: ListChecks,
-              title: "02 — ACESSE OS MATERIAIS",
-              text: "Você recebe o guia principal e os três bônus desta oferta.",
-            },
-            {
-              Icon: BookOpen,
-              title: "03 — COMECE PELO GUIA PRINCIPAL",
-              text: "Entenda os principais pontos da Reforma e as áreas que exigem atenção.",
-            },
-            {
-              Icon: FileCheck2,
-              title: "04 — USE OS BÔNUS",
-              text: "Consulte os comunicados, analise cenários de preços e confira informações fiscais sempre que precisar.",
-            },
-          ].map(({ Icon, title, text }) => (
-            <article key={title}>
-              <Icon className="ref-step-svg" aria-hidden="true" />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-        <a className="ref-green-btn" href="#oferta">
-          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
-        </a>
-      </section>
-
-      <section className="ref-faq">
-        <h2>PERGUNTAS FREQUENTES</h2>
-        <div>
-          {faqs.map(([question, answer]) => (
-            <details key={question}>
-              <summary>
-                {question}
-                <ChevronDown aria-hidden="true" />
-              </summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="ref-cta">
-        <h2>APROVEITE A OFERTA</h2>
-        <p className="ref-section-intro">Garanta seu acesso agora</p>
-        <p>
-          Tenha materiais para entender as mudanças, revisar documentos e analisar pontos
-          importantes da adaptação à Reforma Tributária.
-        </p>
-        <p>Comece sua preparação hoje</p>
-        <ul className="ref-checks">
-          {[
-            "Reforma Tributária Sem Erros",
-            "Bônus 01: Kit de Comunicados Prontos",
-            "Bônus 02: Simulador Visual de Preços e Lucros",
-            "Bônus 03: SOS Nota Fiscal — Guia de Conferência",
-            "Garantia de 7 dias",
-          ].map((text) => (
-            <li key={text}>
-              <CheckCircle2 aria-hidden="true" />
-              {text}
-            </li>
-          ))}
-        </ul>
-        <a className="ref-green-btn" href="#oferta">
-          QUERO ADQUIRIR AGORA <ArrowRight aria-hidden="true" />
-        </a>
-        <small>Compra 100% segura. Seus dados são protegidos no ambiente de pagamento.</small>
-      </section>
-
-      <footer className="ref-footer">
-        <div className="ref-footer-note">
-          <strong>GUIA NA PRÁTICA</strong>
-          <p>Material educacional e informativo.</p>
-          <p>
-            Este conteúdo não substitui orientação contábil, fiscal ou jurídica. Antes de aplicar
-            regras tributárias ao seu caso, consulte a legislação vigente, fontes oficiais e
-            profissionais responsáveis.
-          </p>
-          <p>
-            <strong>Termos de Acesso · Política de Privacidade · Contato</strong>
-          </p>
-        </div>
-        <p>© 2026 — Todos os direitos reservados.</p>
-      </footer>
       <a className="ref-sticky" href="#oferta">
         QUERO MEU GUIA <ArrowRight aria-hidden="true" />
       </a>
