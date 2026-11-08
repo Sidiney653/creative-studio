@@ -31,20 +31,14 @@ const depoimentos = Object.values(
   }),
 ).map((a) => a.url);
 const bonusSamples = [
-  "bonus1-01",
-  "bonus1-03",
-  "bonus1-06",
-  "bonus2-01",
-  "bonus2-04",
-  "bonus2-10",
-  "bonus3-01",
-  "bonus3-03",
-  "bonus3-07",
-].map(asset);
+  ...["bonus1-01", "bonus1-03", "bonus1-06"].map(asset),
+  "/assets/produto/bonus2-capa-simulador.png",
+  "/assets/produto/bonus3-capa-sos.png",
+];
 const bonuses = [
   {
     title: "Kit de Comunicados Prontos da Reforma Tributária",
-    pages: 20,
+    tag: "BÔNUS #1 · 20 PÁGINAS",
     cover: asset("bonus1-01"),
     description:
       "30 mensagens profissionais editáveis para apoiar a comunicação durante a adaptação.",
@@ -64,22 +58,48 @@ const bonuses = [
     ],
   },
   {
-    title: "Kit de Implementação da Reforma Tributária",
-    pages: 1,
-    cover: asset("bonus2-01"),
-    description:
-      "Uma ferramenta editável para transformar a preparação em um projeto que pode ser acompanhado pela equipe.",
+    title: "Simulador Visual de Preços e Lucros",
+    tag: "BÔNUS #2 · 10 PÁGINAS",
+    cover: "/assets/produto/bonus2-capa-simulador.png",
+    description: "Avalie como custos e tributação podem impactar preço, lucro e margem.",
+    extra: "Um guia visual para analisar cenários antes de tomar decisões sobre preços.",
     items: [
-      "Dados e perfil da empresa",
-      "Diagnóstico da adaptação",
-      "Prioridades e responsáveis",
-      "Plano de ação",
-      "Tarefas e status",
-      "Prazos internos",
-      "Pendências e riscos",
-      "Cronograma da transição",
-      "Painel de acompanhamento",
-      "Fontes oficiais para consulta",
+      "Preço de venda",
+      "Custos fixos e variáveis",
+      "Impacto da tributação",
+      "Cálculo do lucro",
+      "Cálculo da margem",
+      "Cenário atual",
+      "Reajuste de preço",
+      "Comparação entre cenários",
+      "Pontos de atenção antes de decidir",
+    ],
+  },
+  {
+    title: "SOS Nota Fiscal — Guia de Conferência",
+    tag: "BÔNUS #3",
+    cover: "/assets/produto/bonus3-capa-sos.png",
+    description: "Revise informações importantes antes de emitir documentos fiscais.",
+    extra:
+      "Um guia visual para ajudar na conferência de informações e reduzir erros de preenchimento e inconsistências.",
+    items: [
+      "Dados do emitente",
+      "Dados do destinatário",
+      "Produto ou serviço",
+      "NCM e classificação",
+      "CFOP",
+      "Tributação da operação",
+      "Valores e totais",
+      "Transporte e frete",
+      "XML e DANFE",
+      "Autorização e rejeições",
+      "Cancelamento e correções",
+      "IBS e CBS na transição",
+      "Informações adicionais",
+      "Chave de acesso e protocolo",
+      "Tributos e retenções",
+      "Arquivamento de XML",
+      "Fluxo interno de aprovação",
     ],
   },
 ];
@@ -112,7 +132,7 @@ const heroChecks = [
   "Documentos fiscais e sistemas",
   "Créditos, preços e contratos",
   "Processos, equipe e controles",
-  "2 bônus para ajudar na implementação",
+  "3 bônus para complementar sua preparação",
 ];
 const ideal = [
   [
@@ -128,22 +148,22 @@ const ideal = [
     "Cadastros, documentos, sistemas, responsáveis e rotinas em uma sequência mais clara.",
   ],
   [
-    "Preparar diferentes áreas",
-    "Fiscal, contábil, financeiro, tecnologia, compras e comercial precisam trabalhar de forma coordenada.",
+    "Conferir documentos com mais atenção",
+    "Tenha uma referência visual para revisar informações importantes antes da emissão.",
   ],
   [
-    "Criar uma rotina de acompanhamento",
-    "Use os materiais para revisar pendências, responsabilidades e próximos passos.",
+    "Avaliar preços e margens",
+    "Use cenários para visualizar como custos e tributação podem impactar o resultado.",
   ],
   [
     "Consultar sempre que precisar",
-    "Material digital para acessar pelo celular, tablet ou computador.",
+    "Materiais digitais para acessar pelo celular, tablet ou computador.",
   ],
 ];
 const faqs = [
   [
     "O que está incluído?",
-    "Você recebe o **Reforma Tributária Sem Erros**, o **Kit de Comunicados Prontos da Reforma Tributária** e o **Kit de Implementação da Reforma Tributária** em planilha editável.",
+    "Você recebe o **Reforma Tributária Sem Erros** e três bônus: **Kit de Comunicados Prontos da Reforma Tributária**, **Simulador Visual de Preços e Lucros** e **SOS Nota Fiscal — Guia de Conferência**.",
   ],
   [
     "Preciso ser contador para utilizar?",
@@ -156,16 +176,20 @@ const faqs = [
   ],
   [
     "O material aborda erros e riscos na adaptação?",
-    "Sim. O produto principal possui orientações sobre cadastros, classificações, documentos, sistemas, créditos e processos.",
+    "Sim. O produto principal apresenta orientações sobre cadastros, classificações, documentos, sistemas, créditos e processos.",
   ],
-  ["O Kit de Comunicados está incluído?", "Sim. Ele faz parte dos bônus desta oferta."],
+  ["Os três bônus estão incluídos?", "Sim. Os três materiais apresentados nesta oferta estão incluídos."],
   [
-    "A planilha é editável?",
-    "Sim. O Kit de Implementação foi estruturado como uma planilha editável para organizar informações e acompanhamento.",
+    "O Simulador calcula automaticamente?",
+    "Não. Ele é um guia visual de simulação para ajudar você a organizar os dados e comparar cenários.",
+  ],
+  [
+    "O SOS Nota Fiscal ajuda na conferência?",
+    "Sim. Ele apresenta pontos de atenção para revisar informações de documentos fiscais antes da emissão.",
   ],
   [
     "O material substitui um contador ou advogado?",
-    "Não. Os materiais possuem finalidade educacional e organizacional e não substituem análise técnica, contábil, fiscal ou jurídica.",
+    "Não. Os materiais têm finalidade educacional e informativa e não substituem análise técnica, contábil, fiscal ou jurídica.",
   ],
   ["O pagamento é mensal?", "Não. A compra é feita em pagamento único."],
   [
@@ -197,10 +221,6 @@ function SalesPage() {
           Pare de depender de informações soltas. Tenha um material visual e prático para entender o
           que muda e o que precisa ser revisado.
         </h3>
-        <p>
-          Material educacional e informativo para estudar, revisar e organizar a adaptação da
-          empresa.
-        </p>
         <ul className="ref-checks">
           {heroChecks.map((text) => (
             <li key={text}>
@@ -220,7 +240,7 @@ function SalesPage() {
 
       <section className="ref-gallery">
         <h2>VEJA POR DENTRO DO SEU MATERIAL</h2>
-        <p className="ref-section-intro">Um guia visual para entender o que muda na prática.</p>
+        <p className="ref-section-intro">Um guia visual para entender o que muda na prática</p>
         <p>
           Veja páginas reais do <strong>Reforma Tributária Sem Erros</strong>.
         </p>
@@ -324,7 +344,7 @@ function SalesPage() {
           ))}
         </div>
         <a className="ref-green-btn" href="#oferta">
-          QUERO TER ESSE GUIA À MÃO <ArrowRight aria-hidden="true" />
+          QUERO TER ESSES MATERIAIS À MÃO <ArrowRight aria-hidden="true" />
         </a>
       </section>
 
@@ -360,14 +380,12 @@ function SalesPage() {
           </a>
         </div>
         <h2 className="ref-more-title">E VOCÊ TAMBÉM RECEBE</h2>
-        <h3>2 BÔNUS PARA SAIR DO ESTUDO E ORGANIZAR A IMPLEMENTAÇÃO</h3>
-        <div className="ref-bonus-label">🎁 2 BÔNUS INCLUÍDOS</div>
+        <h3>3 BÔNUS PARA COMPLEMENTAR SUA PREPARAÇÃO</h3>
+        <div className="ref-bonus-label">🎁 3 BÔNUS INCLUÍDOS</div>
         <div className="ref-bonus-grid">
-          {bonuses.map((bonus, i) => (
+          {bonuses.map((bonus) => (
             <article key={bonus.title}>
-              <div className="ref-bonus-number">
-                BÔNUS #{i + 1} · {bonus.pages} PÁGINAS
-              </div>
+              <div className="ref-bonus-number">{bonus.tag}</div>
               <img src={bonus.cover} alt={`Capa: ${bonus.title}`} loading="lazy" />
               <h3>{bonus.title}</h3>
               <p>{bonus.description}</p>
@@ -388,10 +406,10 @@ function SalesPage() {
 
       <section className="ref-pricing" id="oferta">
         <div className="ref-last-chance">⚡ TUDO EM UM ÚNICO ACESSO</div>
-        <h2>ENTENDA. ORGANIZE. ACOMPANHE.</h2>
+        <h2>ENTENDA. CONFIRA. ANALISE.</h2>
         <div className="ref-price-grid">
           <article className="ref-price-card ref-complete">
-            <div className="ref-best">PRODUTO PRINCIPAL + 2 BÔNUS</div>
+            <div className="ref-best">PRODUTO PRINCIPAL + 3 BÔNUS</div>
             <h3>SUA OFERTA COMPLETA</h3>
             <img
               className="ref-offer-mockup"
@@ -400,8 +418,8 @@ function SalesPage() {
               loading="lazy"
             />
             <b className="ref-4x">
-              Reforma Tributária Sem Erros + Kit de Comunicados Prontos + Kit de Implementação
-              Editável
+              Reforma Tributária Sem Erros + Kit de Comunicados Prontos + Simulador Visual de Preços
+              e Lucros + SOS Nota Fiscal
             </b>
             <ul>
               <li>
@@ -414,7 +432,11 @@ function SalesPage() {
               </li>
               <li>
                 <Check aria-hidden="true" />
-                Kit de Implementação da Reforma Tributária
+                Simulador Visual de Preços e Lucros
+              </li>
+              <li>
+                <Check aria-hidden="true" />
+                SOS Nota Fiscal — Guia de Conferência
               </li>
               <li>
                 <Check aria-hidden="true" />
@@ -435,10 +457,8 @@ function SalesPage() {
       </section>
 
       <section className="ref-sequence">
-        <h2>DO ENTENDIMENTO À IMPLEMENTAÇÃO</h2>
-        <p className="ref-section-intro">
-          Uma sequência para acompanhar diferentes etapas da preparação
-        </p>
+        <h2>DO ENTENDIMENTO À ROTINA</h2>
+        <p className="ref-section-intro">Materiais para diferentes pontos da preparação</p>
         <div>
           {[
             [
@@ -448,23 +468,18 @@ function SalesPage() {
             ],
             [
               "2",
-              "DIAGNOSTIQUE",
-              "Use a planilha para avaliar a situação da empresa e identificar prioridades.",
-            ],
-            [
-              "3",
-              "ORGANIZE",
-              "Defina responsáveis, tarefas, prazos e pendências dentro do Kit de Implementação.",
-            ],
-            [
-              "4",
               "COMUNIQUE",
               "Use os modelos prontos para alinhar clientes, fornecedores, equipe e diretoria.",
             ],
             [
-              "5",
-              "ACOMPANHE",
-              "Revise o painel, as pendências e as fontes oficiais conforme a implementação avança.",
+              "3",
+              "ANALISE",
+              "Use o Simulador Visual para comparar cenários de preço, custos, tributação, lucro e margem.",
+            ],
+            [
+              "4",
+              "CONFIRA",
+              "Use o SOS Nota Fiscal como apoio na revisão das informações antes da emissão.",
             ],
           ].map(([n, title, text]) => (
             <article key={n}>
@@ -480,19 +495,16 @@ function SalesPage() {
       </section>
 
       <section className="ref-before">
-        <h2>PREPARE-SE ANTES QUE AS PENDÊNCIAS SE ACUMULEM</h2>
-        <p className="ref-section-intro">Tenha uma referência para consultar durante a adaptação</p>
-        <p>
-          Em vez de depender apenas de anotações, mensagens espalhadas e informações encontradas em
-          momentos diferentes, reúna em um só lugar:
-        </p>
+        <h2>PREPARE-SE ANTES QUE OS ERROS VIREM RETRABALHO</h2>
+        <p className="ref-section-intro">Tenha referências visuais para consultar no dia a dia</p>
+        <p>Em vez de depender apenas de informações espalhadas, reúna em um só lugar:</p>
         <ul>
           {[
             "Conteúdo para entender",
             "Checklists para revisar",
-            "Planilha para organizar",
-            "Comunicados para alinhar",
-            "Ferramentas para acompanhar",
+            "Comunicados para usar",
+            "Cenários para analisar",
+            "Guia para conferir notas fiscais",
           ].map((text) => (
             <li key={text}>
               <Check aria-hidden="true" />
@@ -507,21 +519,20 @@ function SalesPage() {
 
       <section className="ref-showcase">
         <h2>VEJA OS MATERIAIS POR DENTRO</h2>
-        <p className="ref-section-intro">Você sabe exatamente o que está comprando</p>
+        <p className="ref-section-intro">Você sabe exatamente o que está recebendo</p>
         <AutoCarousel images={gallery} label="Páginas do produto principal" />
-        <AutoCarousel images={bonusSamples} label="Páginas do Kit de Comunicados" />
-        <p>[IMAGENS DA PLANILHA EDITÁVEL]</p>
-        <p>Mostrar:</p>
+        <AutoCarousel images={bonusSamples} label="Páginas dos bônus" />
+        <p>Mostrar exemplos de:</p>
         <ul>
           {[
-            "Guia principal",
-            "Checklists",
+            "Novos tributos",
             "Erros e pontos de atenção",
             "Comunicados prontos",
-            "Diagnóstico",
-            "Plano de ação",
-            "Painel de acompanhamento",
-            "Cronograma",
+            "Preços e custos",
+            "Lucro e margem",
+            "Dados fiscais",
+            "NCM e CFOP",
+            "Conferência de documentos",
           ].map((text) => (
             <li key={text}>
               <Check aria-hidden="true" />
@@ -538,8 +549,6 @@ function SalesPage() {
         <h2>QUEM JÁ ESTÁ UTILIZANDO OS MATERIAIS</h2>
         <p className="ref-section-intro">Veja a experiência de quem adquiriu</p>
         <AutoCarousel images={depoimentos} label="Depoimentos de clientes" />
-        <p>[INSERIR SOMENTE DEPOIMENTOS REAIS]</p>
-        <p>Não inventar nomes, fotos, cargos, empresas ou resultados.</p>
         <a className="ref-green-btn" href="#oferta">
           QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
         </a>
@@ -552,10 +561,10 @@ function SalesPage() {
           <span>DE GARANTIA</span>
         </div>
         <div>
-          <h2>Conheça o material com tranquilidade</h2>
+          <h2>Conheça os materiais com tranquilidade</h2>
           <p>
-            Acesse os materiais, confira como os conteúdos e ferramentas estão organizados e avalie
-            se eles atendem ao que você procurava.
+            Acesse os conteúdos, confira como estão organizados e avalie se atendem ao que você
+            procurava.
           </p>
           <p>
             Caso não queira continuar, solicite o reembolso dentro de 7 dias após a compra, conforme
@@ -580,17 +589,17 @@ function SalesPage() {
             {
               Icon: ListChecks,
               title: "02 — ACESSE OS MATERIAIS",
-              text: "Você recebe o guia principal, o Kit de Comunicados e a planilha editável.",
+              text: "Você recebe o guia principal e os três bônus desta oferta.",
             },
             {
               Icon: BookOpen,
-              title: "03 — COMECE PELO GUIA",
-              text: "Entenda primeiro os principais pontos da Reforma e as áreas que precisam de atenção.",
+              title: "03 — COMECE PELO GUIA PRINCIPAL",
+              text: "Entenda os principais pontos da Reforma e as áreas que exigem atenção.",
             },
             {
               Icon: FileCheck2,
-              title: "04 — ORGANIZE A IMPLEMENTAÇÃO",
-              text: "Use a planilha e os comunicados como apoio para organizar suas próximas ações.",
+              title: "04 — USE OS BÔNUS",
+              text: "Consulte os comunicados, analise cenários de preços e confira informações fiscais sempre que precisar.",
             },
           ].map(({ Icon, title, text }) => (
             <article key={title}>
@@ -624,15 +633,16 @@ function SalesPage() {
         <h2>APROVEITE A OFERTA</h2>
         <p className="ref-section-intro">Garanta seu acesso agora</p>
         <p>
-          Tenha os materiais para entender as mudanças, organizar a implementação e acompanhar os
-          pontos de atenção da Reforma Tributária.
+          Tenha materiais para entender as mudanças, revisar documentos e analisar pontos
+          importantes da adaptação à Reforma Tributária.
         </p>
         <p>Comece sua preparação hoje</p>
         <ul className="ref-checks">
           {[
             "Reforma Tributária Sem Erros",
             "Bônus 01: Kit de Comunicados Prontos",
-            "Bônus 02: Kit de Implementação Editável",
+            "Bônus 02: Simulador Visual de Preços e Lucros",
+            "Bônus 03: SOS Nota Fiscal — Guia de Conferência",
             "Garantia de 7 dias",
           ].map((text) => (
             <li key={text}>
@@ -663,7 +673,7 @@ function SalesPage() {
         <p>© 2026 — Todos os direitos reservados.</p>
       </footer>
       <a className="ref-sticky" href="#oferta">
-        QUERO MEU ACESSO <ArrowRight aria-hidden="true" />
+        QUERO MEU GUIA <ArrowRight aria-hidden="true" />
       </a>
     </main>
   );
