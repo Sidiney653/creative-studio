@@ -16,8 +16,10 @@ export function HeroSection() {
   return (
     <section className="ref-hero">
       <div className="ref-brand">GUIA PRÁTICO · REFORMA TRIBUTÁRIA</div>
-      <h1>Reforma Tributária Sem Erros</h1>
-      <h2>
+      <h1 className="ref-hero-title">
+        Reforma Tributária<br />Sem Erros
+      </h1>
+      <h2 className="ref-hero-subtitle">
         Entenda as mudanças, identifique pontos de atenção e organize a preparação da sua empresa
         para a nova rotina tributária.
       </h2>
