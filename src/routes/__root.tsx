@@ -80,10 +80,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mapa Fácil da Reforma Tributária | Material Visual" },
-      { name: "description", content: "Guia ilustrado com 64 páginas + 3 bônus em PDF: checklist, linha do tempo e 15 erros fiscais. Pacote completo por R$ 47,00." },
-      { property: "og:title", content: "Mapa Fácil da Reforma Tributária" },
-      { property: "og:description", content: "Material visual para estudar e consultar os principais pontos da Reforma Tributária." },
+      { title: "Reforma Tributária Sem Erros | Guia Prático" },
+      {
+        name: "description",
+        content:
+          "Guia prático de 50 páginas + 2 bônus: entenda IBS, CBS, Imposto Seletivo, cadastros, documentos, sistemas e créditos. Prepare sua empresa para a Reforma Tributária por R$ 47,00.",
+      },
+      { property: "og:title", content: "Reforma Tributária Sem Erros | Guia Prático" },
+      {
+        property: "og:description",
+        content:
+          "Material visual e prático para entender o que muda na Reforma Tributária e preparar sua empresa.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -106,7 +114,10 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="pt-BR">
       <head>
         <HeadContent />
-        <script id="utmify-pixel-loader" dangerouslySetInnerHTML={{ __html: UTMIFY_PIXEL_SCRIPT }} />
+        <script
+          id="utmify-pixel-loader"
+          dangerouslySetInnerHTML={{ __html: UTMIFY_PIXEL_SCRIPT }}
+        />
         <script id="utmify-utms-loader" dangerouslySetInnerHTML={{ __html: UTMIFY_UTMS_SCRIPT }} />
       </head>
       <body>

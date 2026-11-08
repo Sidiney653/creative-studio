@@ -1,176 +1,670 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AutoCarousel } from "@/components/sales/AutoCarousel";
-import { ArrowRight, BookOpen, CalendarDays, Check, CheckCircle2, ChevronDown, Download, FileCheck2, ListChecks, ShieldCheck, TriangleAlert } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  CalendarDays,
+  Check,
+  CheckCircle2,
+  ChevronDown,
+  Download,
+  FileCheck2,
+  ListChecks,
+  ShieldCheck,
+  TriangleAlert,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({ component: SalesPage });
-const checkoutUrl = "https://checkout.wiven.com.br/checkout/cmvy9ira100k001og5qkt8tcv?offer=SFC56YZ";
+const checkoutUrl =
+  "https://checkout.wiven.com.br/checkout/cmvy9ira100k001og5qkt8tcv?offer=SFC56YZ";
 const mockup = "/assets/mockup-principal.png";
 const asset = (name: string) => `/assets/produto/${name}.webp`;
 const cover = asset("principal-01");
-const gallery = Array.from({ length: 19 }, (_, i) => `/assets/carrossel/pagina-${String(i + 1).padStart(2, "0")}.webp`);
-const depoimentos = Object.values(import.meta.glob<{ url: string }>("@/assets/depoimentos/*.asset.json", { eager: true, import: "default" })).map(a => a.url);
-const bonusSamples =  ["bonus1-01", "bonus1-03", "bonus1-06", "bonus2-01", "bonus2-04", "bonus2-10", "bonus3-01", "bonus3-03", "bonus3-07"].map(asset);
+const gallery = Array.from(
+  { length: 19 },
+  (_, i) => `/assets/carrossel/pagina-${String(i + 1).padStart(2, "0")}.webp`,
+);
+const depoimentos = Object.values(
+  import.meta.glob<{ url: string }>("@/assets/depoimentos/*.asset.json", {
+    eager: true,
+    import: "default",
+  }),
+).map((a) => a.url);
+const bonusSamples = [
+  "bonus1-01",
+  "bonus1-03",
+  "bonus1-06",
+  "bonus2-01",
+  "bonus2-04",
+  "bonus2-10",
+  "bonus3-01",
+  "bonus3-03",
+  "bonus3-07",
+].map(asset);
 const bonuses = [
-  { title: 'Checklist “O Que Entender Primeiro”', pages: 10, cover: asset("bonus1-01"), description: "Saiba por onde começar e avance do entendimento geral até a preparação da operação, em uma sequência de estudo visual.", items: ["Base da Reforma e identificação dos novos tributos", "Incidência, créditos e débitos", "Transição e análise do regime tributário", "Documentos, sistemas e preparação da operação"] },
-  { title: "Linha do Tempo Visual da Reforma Tributária", pages: 20, cover: asset("bonus2-01"), description: "Visualize as etapas de 2026 a 2033 e organize o que estudar e acompanhar em cada fase da transição.", items: ["Visão geral do cronograma de implementação", "Fase de testes e mudanças por ano", "Tributos que saem e tributos que entram", "Impactos em documentos, sistemas e rotinas"] },
-  { title: "Os 15 Erros Fiscais que Você Deve Evitar na Reforma Tributária", pages: 20, cover: asset("bonus3-01"), description: "Identifique pontos de atenção nos processos fiscais e use as orientações visuais para organizar sua revisão.", items: ["Classificação tributária, cadastros e códigos", "Emissão de documentos e parametrização do ERP", "Créditos, apuração assistida e conciliação", "Plano de ação e checklist final de revisão"] },
+  {
+    title: "Kit de Comunicados Prontos da Reforma Tributária",
+    pages: 20,
+    cover: asset("bonus1-01"),
+    description:
+      "30 mensagens profissionais editáveis para apoiar a comunicação durante a adaptação.",
+    extra:
+      "Tenha modelos para comunicar mudanças e solicitar informações sem precisar começar cada mensagem do zero.",
+    items: [
+      "Comunicação com clientes",
+      "Solicitação de informações",
+      "Atualizações de sistemas e ERP",
+      "Comunicação sobre a transição",
+      "Mensagens para fornecedores",
+      "Orientações para equipe fiscal e financeira",
+      "Comunicados para diretoria",
+      "Avisos sobre rotinas",
+      "Confirmações e pendências",
+      "Checklist de envio e acompanhamento",
+    ],
+  },
+  {
+    title: "Kit de Implementação da Reforma Tributária",
+    pages: 1,
+    cover: asset("bonus2-01"),
+    description:
+      "Uma ferramenta editável para transformar a preparação em um projeto que pode ser acompanhado pela equipe.",
+    items: [
+      "Dados e perfil da empresa",
+      "Diagnóstico da adaptação",
+      "Prioridades e responsáveis",
+      "Plano de ação",
+      "Tarefas e status",
+      "Prazos internos",
+      "Pendências e riscos",
+      "Cronograma da transição",
+      "Painel de acompanhamento",
+      "Fontes oficiais para consulta",
+    ],
+  },
 ];
 const topics = [
-  "Visão geral da Reforma e comparação entre os modelos",
-  "IBS, CBS e Imposto Seletivo explicados visualmente",
-  "Base de cálculo e exemplo didático de cálculo em 2026",
-  "Não cumulatividade, créditos, débitos e apuração assistida",
-  "Notas de débito e crédito e documentos fiscais",
-  "Cronograma de transição de 2026 a 2033",
-  "Simples Nacional, MEI e rotinas contábeis e fiscais",
-  "Destino, local da operação, exportações e importações",
-  "Split payment, cashback e regimes diferenciados",
-  "Regimes específicos, imunidades e operações especiais",
+  "IBS, CBS e Imposto Seletivo",
+  "Cronograma de transição",
+  "Impactos para empresas",
+  "Principais erros a evitar",
+  "Plano de preparação",
+  "Checklists de adequação",
+  "Classificação fiscal",
+  "Documentos fiscais",
+  "Parametrização de sistemas e ERP",
+  "Créditos e documentação",
+  "Revisão de preços e contratos",
+  "Treinamento da equipe",
+  "Plano de ação 30, 60 e 90 dias",
+  "Governança tributária",
+  "Produtos, serviços e fornecedores",
+  "Evidências e documentos",
+  "Fluxo de caixa",
+  "Auditoria interna",
+  "Matriz de responsabilidades",
+  "Integração entre áreas",
+  "Monitoramento e melhoria contínua",
 ];
 const heroChecks = [
-  "Produto principal com 64 páginas ilustradas",
-  "IBS, CBS, Imposto Seletivo e cálculos em explicações visuais",
-  "Apuração assistida, notas de débito e crédito e documentos fiscais",
-  "Simples Nacional, MEI e impactos nas rotinas contábeis e fiscais",
-  "3 bônus: checklist de estudo, linha do tempo e guia dos 15 erros fiscais",
-  "114 páginas ao todo, em 4 materiais digitais em PDF",
+  "Novos tributos e transição",
+  "Cadastros e classificação fiscal",
+  "Documentos fiscais e sistemas",
+  "Créditos, preços e contratos",
+  "Processos, equipe e controles",
+  "2 bônus para ajudar na implementação",
 ];
 const ideal = [
-  ["Entender a Reforma sem começar por textos extensos", "Mapas visuais para ter uma visão geral antes de aprofundar os temas."],
-  ["Saber por onde começar a estudar", "Um checklist que organiza a sequência do básico à preparação prática."],
-  ["Revisar IBS, CBS e os principais conceitos", "Explicações ilustradas, comparativos e exemplos para consultar."],
-  ["Visualizar as etapas da transição", "Uma linha do tempo para acompanhar o cronograma e os pontos de atenção."],
-  ["Organizar a revisão dos processos fiscais", "Um guia com 15 erros, situações de risco e cuidados de conferência."],
-  ["Estudar e consultar no seu ritmo", "PDFs para ler no celular, tablet ou computador e imprimir se desejar."],
+  [
+    "Entender a Reforma sem começar por textos extensos",
+    "Conteúdo visual para compreender os principais conceitos antes de aprofundar cada tema.",
+  ],
+  [
+    "Saber o que revisar na empresa",
+    "Use os checklists e orientações para identificar pontos que merecem atenção.",
+  ],
+  [
+    "Organizar processos internos",
+    "Cadastros, documentos, sistemas, responsáveis e rotinas em uma sequência mais clara.",
+  ],
+  [
+    "Preparar diferentes áreas",
+    "Fiscal, contábil, financeiro, tecnologia, compras e comercial precisam trabalhar de forma coordenada.",
+  ],
+  [
+    "Criar uma rotina de acompanhamento",
+    "Use os materiais para revisar pendências, responsabilidades e próximos passos.",
+  ],
+  [
+    "Consultar sempre que precisar",
+    "Material digital para acessar pelo celular, tablet ou computador.",
+  ],
 ];
 const faqs = [
-  ["O que está incluído no pacote de R$ 47,00?", "Você recebe o Mapa Fácil da Reforma Tributária, com 64 páginas, e três bônus: Checklist “O Que Entender Primeiro” (10 páginas), Linha do Tempo Visual da Reforma Tributária (20 páginas) e Os 15 Erros Fiscais que Você Deve Evitar na Reforma Tributária (20 páginas). São quatro PDFs, com 114 páginas ao todo."],
-  ["Preciso ser contador para estudar o material?", "O conteúdo usa mapas mentais e explicações ilustradas para facilitar o estudo. Pode ser usado por profissionais contábeis e fiscais, estudantes e empreendedores que desejam compreender os temas apresentados."],
-  ["Vou receber um produto físico?", "Não. O pacote é digital, em PDF. Você pode ler os arquivos no celular, tablet ou computador e imprimir se desejar."],
-  ["O material explica cálculos de IBS e CBS?", "Sim. O produto principal aborda base de cálculo, a lógica de incidência e um exemplo didático de cálculo em 2026. O pacote não inclui uma planilha calculadora."],
-  ["O guia aborda Simples Nacional e MEI?", "Sim. O material principal inclui páginas sobre Simples Nacional e MEI, além de rotinas contábeis e fiscais, documentos e regimes específicos."],
-  ["Os três bônus estão incluídos no preço?", "Sim. O pagamento único de R$ 47,00 inclui o produto principal e os três bônus apresentados nesta página."],
-  ["Este material substitui orientação contábil ou jurídica?", "Não. Os PDFs são educacionais e informativos. Para aplicar regras a uma operação concreta, consulte a legislação vigente, as fontes oficiais e o profissional responsável."],
-  ["Como funciona a garantia?", "Você tem 7 dias após a compra para solicitar o reembolso, conforme as condições da plataforma de pagamento."],
+  [
+    "O que está incluído?",
+    "Você recebe o **Reforma Tributária Sem Erros**, o **Kit de Comunicados Prontos da Reforma Tributária** e o **Kit de Implementação da Reforma Tributária** em planilha editável.",
+  ],
+  [
+    "Preciso ser contador para utilizar?",
+    "Não. O conteúdo foi organizado de forma visual e didática. Porém, decisões tributárias específicas devem ser avaliadas com base na legislação vigente e, quando necessário, com apoio profissional.",
+  ],
+  ["Vou receber algum produto físico?", "Não. Os materiais são digitais."],
+  [
+    "O produto principal fala sobre IBS e CBS?",
+    "Sim. O guia apresenta os novos tributos e outros pontos importantes da transição tributária.",
+  ],
+  [
+    "O material aborda erros e riscos na adaptação?",
+    "Sim. O produto principal possui orientações sobre cadastros, classificações, documentos, sistemas, créditos e processos.",
+  ],
+  ["O Kit de Comunicados está incluído?", "Sim. Ele faz parte dos bônus desta oferta."],
+  [
+    "A planilha é editável?",
+    "Sim. O Kit de Implementação foi estruturado como uma planilha editável para organizar informações e acompanhamento.",
+  ],
+  [
+    "O material substitui um contador ou advogado?",
+    "Não. Os materiais possuem finalidade educacional e organizacional e não substituem análise técnica, contábil, fiscal ou jurídica.",
+  ],
+  ["O pagamento é mensal?", "Não. A compra é feita em pagamento único."],
+  [
+    "Como funciona a garantia?",
+    "Você tem 7 dias para acessar e avaliar os materiais, conforme as regras da plataforma de pagamento.",
+  ],
 ];
 
 function SalesPage() {
-  return <main className="ref-page">
-    <div className="ref-top">⚡ AS REGRAS JÁ MUDARAM · ESTUDE AGORA</div>
-    <section className="ref-hero">
-      <div className="ref-brand">GUIA NA PRÁTICA · REFORMA TRIBUTÁRIA</div>
-      <h1>Mapa Fácil da Reforma Tributária</h1>
-      <h2><span className="ref-title-black">Entenda os principais pontos</span> <span className="ref-title-blue">da Reforma Tributária</span> de forma simples, visual e organizada</h2>
-      <div className="ref-product-showcase ref-product-showcase--single"><img className="ref-main-cover" src={mockup} alt="Mockup do Mapa Fácil da Reforma Tributária" fetchPriority="high"/></div>
-      <h3>Pare de pular entre conteúdos soltos. Organize seu estudo em mapas mentais e explicações ilustradas.</h3>
-      <p>Um guia visual de 64 páginas sobre os novos tributos, a transição e os impactos na rotina — acompanhado de três bônus para orientar seu estudo e sua revisão.</p>
-      <ul className="ref-checks">{heroChecks.map(text=><li key={text}><CheckCircle2 aria-hidden="true"/>{text}</li>)}</ul>
-      <a className="ref-green-btn" href="#oferta">QUERO O PACOTE COMPLETO <ArrowRight aria-hidden="true"/></a>
-      <div className="ref-delivery">4 PDFs · 114 páginas ao todo · Pagamento único de R$ 47,00</div>
-      <small>Conteúdo educacional ilustrado para estudar, revisar e consultar.</small>
-    </section>
+  return (
+    <main className="ref-page">
+      <div className="ref-top">⚡ AS REGRAS JÁ MUDARAM · PREPARE-SE AGORA</div>
+      <section className="ref-hero">
+        <div className="ref-brand">GUIA PRÁTICO · REFORMA TRIBUTÁRIA</div>
+        <h1>Reforma Tributária Sem Erros</h1>
+        <h2>
+          Entenda as mudanças, identifique pontos de atenção e organize a preparação da sua empresa
+          para a nova rotina tributária.
+        </h2>
+        <div className="ref-product-showcase ref-product-showcase--single">
+          <img
+            className="ref-main-cover"
+            src={mockup}
+            alt="Mockup do Reforma Tributária Sem Erros"
+            fetchPriority="high"
+          />
+        </div>
+        <h3>
+          Pare de depender de informações soltas. Tenha um material visual e prático para entender o
+          que muda e o que precisa ser revisado.
+        </h3>
+        <p>
+          Material educacional e informativo para estudar, revisar e organizar a adaptação da
+          empresa.
+        </p>
+        <ul className="ref-checks">
+          {heroChecks.map((text) => (
+            <li key={text}>
+              <CheckCircle2 aria-hidden="true" />
+              {text}
+            </li>
+          ))}
+        </ul>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
+        </a>
+        <small>
+          Material educacional e informativo para estudar, revisar e organizar a adaptação da
+          empresa.
+        </small>
+      </section>
 
-    <section className="ref-gallery">
-      <h2>VEJA POR DENTRO DO SEU MATERIAL</h2>
-      <p className="ref-section-intro">Estas são páginas reais do Mapa Fácil da Reforma Tributária.</p>
-      <AutoCarousel images={gallery} label="Amostras reais do produto principal"/>
-      <p>Conceitos, comparativos e exemplos organizados visualmente para facilitar sua leitura.</p>
-    </section>
+      <section className="ref-gallery">
+        <h2>VEJA POR DENTRO DO SEU MATERIAL</h2>
+        <p className="ref-section-intro">Um guia visual para entender o que muda na prática.</p>
+        <p>
+          Veja páginas reais do <strong>Reforma Tributária Sem Erros</strong>.
+        </p>
+        <AutoCarousel images={gallery} label="Páginas reais do produto" />
+        <p>
+          Novos tributos, cronograma, erros fiscais, cadastros, documentos, sistemas e processos
+          organizados visualmente.
+        </p>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO COMEÇAR MINHA PREPARAÇÃO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
 
-    <section className="ref-features">
-      <h2>UM CAMINHO VISUAL PARA ORGANIZAR SEU ESTUDO</h2>
-      <div className="ref-feature-grid">
-        {[
-          { Icon: BookOpen, title: "64 páginas no guia principal", text: "Da visão geral da Reforma aos novos tributos, documentos, regimes e operações específicas." },
-          { Icon: ListChecks, title: "Saiba o que entender primeiro", text: "O checklist de 10 páginas apresenta uma sequência de estudo da base da Reforma até a preparação da operação." },
-          { Icon: CalendarDays, title: "Visualize a transição", text: "A linha do tempo de 20 páginas organiza o cronograma e os pontos de atenção de 2026 a 2033." },
-          { Icon: TriangleAlert, title: "Revise os pontos de atenção", text: "O bônus de 20 páginas apresenta 15 erros fiscais, cuidados de revisão e um plano prático de ação." },
-        ].map(({Icon,title,text})=><article key={title}><Icon className="ref-feature-svg" aria-hidden="true"/><div><h3>{title}</h3><p>{text}</p></div></article>)}
-      </div>
-      <a className="ref-green-btn" href="#oferta">QUERO ESTUDAR COM MAIS CLAREZA</a>
-    </section>
+      <section className="ref-features">
+        <h2>DA MUDANÇA NA LEI À ROTINA DA EMPRESA</h2>
+        <p className="ref-section-intro">Saiba onde sua empresa precisa prestar atenção</p>
+        <p>
+          A Reforma Tributária não muda apenas nomes de tributos. Ela também exige atenção aos
+          processos internos.
+        </p>
+        <div className="ref-feature-grid">
+          {[
+            {
+              Icon: BookOpen,
+              title: "Entenda os novos tributos",
+              text: "Visualize IBS, CBS, Imposto Seletivo e a lógica geral da transição.",
+            },
+            {
+              Icon: ListChecks,
+              title: "Revise cadastros e classificações",
+              text: "Identifique pontos de atenção em CNAE, NCM, NBS, produtos, serviços e fornecedores.",
+            },
+            {
+              Icon: CalendarDays,
+              title: "Prepare documentos e sistemas",
+              text: "Revise emissão fiscal, ERP, integrações, parametrizações e rotinas de conferência.",
+            },
+            {
+              Icon: TriangleAlert,
+              title: "Organize créditos e controles",
+              text: "Tenha pontos de revisão para documentação, créditos, evidências e conciliações.",
+            },
+            {
+              Icon: ShieldCheck,
+              title: "Prepare sua equipe",
+              text: "Defina responsáveis, organize treinamentos e mantenha as áreas alinhadas.",
+            },
+          ].map(({ Icon, title, text }) => (
+            <article key={title}>
+              <Icon className="ref-feature-svg" aria-hidden="true" />
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO ME PREPARAR COM MAIS CLAREZA <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
 
-    <section className="ref-blue-callout">
-      <h2>ENTENDA A LÓGICA ANTES DE SE PERDER NOS DETALHES</h2>
-      <ul>{["Comece pela visão geral e identifique IBS, CBS e Imposto Seletivo", "Entenda a lógica de créditos, débitos e apuração", "Visualize as fases da transição e os impactos nas rotinas", "Use os bônus para organizar o estudo e a revisão dos processos"].map(text=><li key={text}>{text}</li>)}</ul>
-      <a className="ref-green-btn" href="#oferta">QUERO MEU GUIA + 3 BÔNUS</a>
-    </section>
-    <section className="ref-demonstration">
-      <h2>CONHEÇA AS PÁGINAS DOS SEUS BÔNUS</h2>
-      <p className="ref-section-intro">Checklist de estudo, linha do tempo e pontos de atenção fiscal em materiais ilustrados.</p>
-      <AutoCarousel images={bonusSamples} label="Amostras reais dos três bônus"/>
-    </section>
-    <section className="ref-urgency">
-      <h2>POR ONDE COMEÇAR QUANDO PARECE QUE TUDO ESTÁ MUDANDO?</h2>
-      <p>Tenha uma sequência de estudo e materiais visuais para voltar aos temas sempre que precisar.</p>
-      <a className="ref-green-btn" href="#oferta">QUERO ORGANIZAR MEU ESTUDO</a>
-    </section>
-    <section className="ref-ideal"><h2>ESTE MATERIAL É PARA VOCÊ QUE DESEJA</h2><div className="ref-ideal-grid">{ideal.map(([title,text])=><article key={title}><CheckCircle2 aria-hidden="true"/><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
+      <section className="ref-blue-callout">
+        <h2>NÃO ESPERE O ERRO APARECER PARA COMEÇAR A SE ORGANIZAR</h2>
+        <p className="ref-section-intro">Antecipe os principais pontos de atenção</p>
+        <p>
+          Durante a adaptação, erros de cadastro, classificação, documento ou sistema podem gerar
+          retrabalho e problemas operacionais.
+        </p>
+        <p>O material ajuda você a revisar pontos como:</p>
+        <ul>
+          {[
+            "Cadastros desatualizados",
+            "Classificação fiscal incorreta",
+            "Documentos incompletos",
+            "Sistemas sem parametrização",
+            "Créditos sem validação",
+            "Preços sem reavaliação",
+            "Contratos sem revisão",
+            "Equipe sem alinhamento",
+          ].map((text) => (
+            <li key={text}>{text}</li>
+          ))}
+        </ul>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO REDUZIR O IMPROVISO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
 
-    <section className="ref-receive">
-      <h2>TUDO O QUE VOCÊ VAI RECEBER</h2>
-      <div className="ref-access-tag">PRODUTO PRINCIPAL · 64 PÁGINAS</div>
-      <div className="ref-receive-card">
-        <h3>MAPA FÁCIL DA REFORMA TRIBUTÁRIA</h3>
-        <p>Material digital ilustrado com mapas mentais e explicações visuais sobre os principais temas da Reforma.</p>
-        <img className="ref-real-cover" src={cover} alt="Capa real do produto principal" loading="lazy"/>
-        <ul>{topics.map(text=><li key={text}><Check aria-hidden="true"/>{text}</li>)}</ul>
-      </div>
-      <h2 className="ref-more-title">E VOCÊ TAMBÉM RECEBE...</h2>
-      <h3>Três materiais para complementar seu estudo</h3>
-      <div className="ref-bonus-label">🎁 3 BÔNUS INCLUÍDOS</div>
-      <div className="ref-bonus-grid ref-bonus-grid--three">{bonuses.map((bonus,i)=><article key={bonus.title}>
-        <div className="ref-bonus-number">BÔNUS #{i+1} · {bonus.pages} PÁGINAS</div>
-        <img src={bonus.cover} alt={`Capa: ${bonus.title}`} loading="lazy"/>
-        <h3>{bonus.title}</h3><p>{bonus.description}</p>
-        <ul>{bonus.items.map(text=><li key={text}><Check aria-hidden="true"/>{text}</li>)}</ul>
-        <span>INCLUÍDO NO PACOTE</span>
-      </article>)}</div>
-    </section>
+      <section className="ref-ideal">
+        <h2>ESTE MATERIAL É PARA VOCÊ QUE DESEJA</h2>
+        <div className="ref-ideal-grid">
+          {ideal.map(([title, text]) => (
+            <article key={title}>
+              <CheckCircle2 aria-hidden="true" />
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO TER ESSE GUIA À MÃO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
 
-    <section className="ref-pricing" id="oferta">
-      <div className="ref-last-chance">⚡ UM ÚNICO PACOTE COMPLETO</div>
-      <h2>SEU GUIA VISUAL<br/>+ OS 3 BÔNUS</h2>
-      <div className="ref-price-grid"><article className="ref-price-card ref-complete">
-        <div className="ref-best">PRODUTO PRINCIPAL + 3 BÔNUS</div>
-        <h3>PACOTE COMPLETO</h3>
-        <img className="ref-offer-mockup" src={mockup} alt="Mockup do pacote Mapa Fácil da Reforma Tributária" loading="lazy"/>
-        <b className="ref-4x">4 PDFs · 114 páginas ao todo</b>
-        <ul><li><Check aria-hidden="true"/>Mapa Fácil da Reforma Tributária — 64 páginas</li>{bonuses.map((bonus,i)=><li key={bonus.title}><Check aria-hidden="true"/>Bônus {i+1}: {bonus.title} — {bonus.pages} páginas</li>)}<li><Check aria-hidden="true"/>Leitura no celular, tablet ou computador</li><li><Check aria-hidden="true"/>Arquivos em PDF que você pode imprimir</li></ul>
-        <small>O pacote completo por apenas</small><strong>R$ 47,00</strong><p className="ref-one-payment">Pagamento único</p>
-        <a className="ref-green-btn" href={checkoutUrl}>QUERO MEU PACOTE COMPLETO <ArrowRight aria-hidden="true"/></a>
-        <div className="ref-payments"><ShieldCheck aria-hidden="true"/> Compra segura · Garantia de 7 dias</div>
-      </article></div>
-      <div className="ref-saving"><b>DO PRIMEIRO CONTATO À REVISÃO DOS PROCESSOS</b><p>Comece pelo checklist, estude o guia principal, acompanhe a linha do tempo e revise os 15 erros fiscais.</p></div>
-    </section>
+      <section className="ref-receive">
+        <h2>TUDO O QUE VOCÊ VAI RECEBER</h2>
+        <div className="ref-access-tag">PRODUTO PRINCIPAL · 50 PÁGINAS</div>
+        <div className="ref-receive-card">
+          <h3>REFORMA TRIBUTÁRIA SEM ERROS</h3>
+          <p>
+            Guia prático para entender as mudanças, evitar falhas fiscais e preparar sua empresa
+          </p>
+          <img
+            className="ref-real-cover"
+            src={cover}
+            alt="Capa real do produto principal"
+            loading="lazy"
+          />
+          <p>
+            Um material visual que transforma os principais pontos da adaptação tributária em
+            orientações práticas e fáceis de consultar.
+          </p>
+          <p>Você vai encontrar:</p>
+          <ul>
+            {topics.map((text) => (
+              <li key={text}>
+                <Check aria-hidden="true" />
+                {text}
+              </li>
+            ))}
+          </ul>
+          <a className="ref-green-btn" href="#oferta">
+            QUERO MEU REFORMA TRIBUTÁRIA SEM ERROS <ArrowRight aria-hidden="true" />
+          </a>
+        </div>
+        <h2 className="ref-more-title">E VOCÊ TAMBÉM RECEBE</h2>
+        <h3>2 BÔNUS PARA SAIR DO ESTUDO E ORGANIZAR A IMPLEMENTAÇÃO</h3>
+        <div className="ref-bonus-label">🎁 2 BÔNUS INCLUÍDOS</div>
+        <div className="ref-bonus-grid">
+          {bonuses.map((bonus, i) => (
+            <article key={bonus.title}>
+              <div className="ref-bonus-number">
+                BÔNUS #{i + 1} · {bonus.pages} PÁGINAS
+              </div>
+              <img src={bonus.cover} alt={`Capa: ${bonus.title}`} loading="lazy" />
+              <h3>{bonus.title}</h3>
+              <p>{bonus.description}</p>
+              {bonus.extra && <p>{bonus.extra}</p>}
+              <ul>
+                {bonus.items.map((text) => (
+                  <li key={text}>
+                    <Check aria-hidden="true" />
+                    {text}
+                  </li>
+                ))}
+              </ul>
+              <span>INCLUÍDO</span>
+            </article>
+          ))}
+        </div>
+      </section>
 
-    <section className="ref-depoimentos">
-      <h2>QUEM JÁ ESTÁ ESTUDANDO COM O MAPA</h2>
-      <p className="ref-section-intro">Arraste para o lado ou use as setas para ver os depoimentos.</p>
-      <AutoCarousel images={depoimentos} label="Depoimentos de clientes"/>
-    </section>
+      <section className="ref-pricing" id="oferta">
+        <div className="ref-last-chance">⚡ TUDO EM UM ÚNICO ACESSO</div>
+        <h2>ENTENDA. ORGANIZE. ACOMPANHE.</h2>
+        <div className="ref-price-grid">
+          <article className="ref-price-card ref-complete">
+            <div className="ref-best">PRODUTO PRINCIPAL + 2 BÔNUS</div>
+            <h3>SUA OFERTA COMPLETA</h3>
+            <img
+              className="ref-offer-mockup"
+              src={mockup}
+              alt="Mockup do pacote Reforma Tributária Sem Erros"
+              loading="lazy"
+            />
+            <b className="ref-4x">
+              Reforma Tributária Sem Erros + Kit de Comunicados Prontos + Kit de Implementação
+              Editável
+            </b>
+            <ul>
+              <li>
+                <Check aria-hidden="true" />
+                Reforma Tributária Sem Erros
+              </li>
+              <li>
+                <Check aria-hidden="true" />
+                Kit de Comunicados Prontos da Reforma Tributária
+              </li>
+              <li>
+                <Check aria-hidden="true" />
+                Kit de Implementação da Reforma Tributária
+              </li>
+              <li>
+                <Check aria-hidden="true" />
+                Garantia de 7 dias
+              </li>
+            </ul>
+            <small>LEVE TUDO POR APENAS</small>
+            <strong>R$ 47,00</strong>
+            <p className="ref-one-payment">PAGAMENTO ÚNICO</p>
+            <a className="ref-green-btn" href={checkoutUrl}>
+              QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
+            </a>
+            <div className="ref-payments">
+              <ShieldCheck aria-hidden="true" /> 🔒 Compra segura · Garantia de 7 dias
+            </div>
+          </article>
+        </div>
+      </section>
 
-    <section className="ref-study-path">
-      <h2>UMA SEQUÊNCIA SIMPLES PARA APROVEITAR O PACOTE</h2>
-      <div>{[
-        ["1", "Organize seu ponto de partida", "Use o checklist para definir a ordem do estudo e entender os conceitos antes de aprofundar."],
-        ["2", "Estude com os mapas visuais", "Leia o material principal e consulte a linha do tempo para relacionar os assuntos às fases da transição."],
-        ["3", "Revise com mais atenção", "Use o guia dos 15 erros fiscais para identificar pontos de revisão em cadastros, documentos e processos."],
-      ].map(([n,title,text])=><article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
-      <a className="ref-green-btn" href="#oferta">QUERO COMEÇAR MEU ESTUDO</a>
-    </section>
-    <section className="ref-guarantee">
-      <div className="ref-guarantee-seal"><ShieldCheck aria-hidden="true"/><strong>7 DIAS</strong><span>DE GARANTIA</span></div>
-      <div><h2>7 DIAS PARA CONHECER O MATERIAL</h2><p>Acesse os PDFs, veja como os assuntos estão organizados e avalie se o pacote faz sentido para o seu estudo.</p><p>Se não quiser continuar com o produto, solicite o reembolso dentro de 7 dias após a compra, conforme as condições da plataforma de pagamento.</p></div>
-    </section>
-    <section className="ref-steps"><h2>COMO USAR SEUS MATERIAIS</h2><div>{[
-      {Icon: Download, title:"Acesse os quatro PDFs", text:"Após a confirmação da compra, siga as instruções de acesso da plataforma de pagamento."},
-      {Icon: ListChecks, title:"Comece pelo checklist", text:"Veja o que entender primeiro e organize seus próximos temas de estudo."},
-      {Icon: BookOpen, title:"Estude e consulte", text:"Abra os arquivos no celular, tablet ou computador. Você também pode imprimir."},
-      {Icon: FileCheck2, title:"Aplique à sua revisão", text:"Use os materiais como apoio educacional e confira as fontes oficiais antes de decisões fiscais."},
-    ].map(({Icon,title,text})=><article key={title}><Icon className="ref-step-svg" aria-hidden="true"/><h3>{title}</h3><p>{text}</p></article>)}</div><a className="ref-green-btn" href="#oferta">QUERO MEU PACOTE COMPLETO</a></section>
-    <section className="ref-faq"><h2>PERGUNTAS FREQUENTES</h2><div>{faqs.map(([question,answer])=><details key={question}><summary>{question}<ChevronDown aria-hidden="true"/></summary><p>{answer}</p></details>)}</div></section>
-    <footer className="ref-footer"><p>© 2026 <strong>Guia na Prática</strong>. Todos os direitos reservados.</p><p>É proibida a reprodução ou distribuição, total ou parcial, deste material sem autorização prévia e expressa do Guia na Prática, ressalvadas as exceções previstas em lei. Protegido pela Lei nº 9.610/1998 (Lei de Direitos Autorais), especialmente o art. 29. A violação de direitos autorais pode configurar crime nos termos do art. 184 do Código Penal.</p><p>Material educacional e informativo. Consulte a legislação vigente, as fontes oficiais e orientação profissional antes de aplicar regras tributárias ao seu caso.</p></footer>
-    <a className="ref-sticky" href="#oferta">QUERO MEU GUIA <ArrowRight aria-hidden="true"/></a>
-  </main>;
+      <section className="ref-sequence">
+        <h2>DO ENTENDIMENTO À IMPLEMENTAÇÃO</h2>
+        <p className="ref-section-intro">
+          Uma sequência para acompanhar diferentes etapas da preparação
+        </p>
+        <div>
+          {[
+            [
+              "1",
+              "ENTENDA",
+              "Comece pelo Reforma Tributária Sem Erros para conhecer as mudanças e os principais pontos de atenção.",
+            ],
+            [
+              "2",
+              "DIAGNOSTIQUE",
+              "Use a planilha para avaliar a situação da empresa e identificar prioridades.",
+            ],
+            [
+              "3",
+              "ORGANIZE",
+              "Defina responsáveis, tarefas, prazos e pendências dentro do Kit de Implementação.",
+            ],
+            [
+              "4",
+              "COMUNIQUE",
+              "Use os modelos prontos para alinhar clientes, fornecedores, equipe e diretoria.",
+            ],
+            [
+              "5",
+              "ACOMPANHE",
+              "Revise o painel, as pendências e as fontes oficiais conforme a implementação avança.",
+            ],
+          ].map(([n, title, text]) => (
+            <article key={n}>
+              <span>{n}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO COMEÇAR MINHA PREPARAÇÃO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
+
+      <section className="ref-before">
+        <h2>PREPARE-SE ANTES QUE AS PENDÊNCIAS SE ACUMULEM</h2>
+        <p className="ref-section-intro">Tenha uma referência para consultar durante a adaptação</p>
+        <p>
+          Em vez de depender apenas de anotações, mensagens espalhadas e informações encontradas em
+          momentos diferentes, reúna em um só lugar:
+        </p>
+        <ul>
+          {[
+            "Conteúdo para entender",
+            "Checklists para revisar",
+            "Planilha para organizar",
+            "Comunicados para alinhar",
+            "Ferramentas para acompanhar",
+          ].map((text) => (
+            <li key={text}>
+              <Check aria-hidden="true" />
+              {text}
+            </li>
+          ))}
+        </ul>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO TER TUDO ORGANIZADO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
+
+      <section className="ref-showcase">
+        <h2>VEJA OS MATERIAIS POR DENTRO</h2>
+        <p className="ref-section-intro">Você sabe exatamente o que está comprando</p>
+        <AutoCarousel images={gallery} label="Páginas do produto principal" />
+        <AutoCarousel images={bonusSamples} label="Páginas do Kit de Comunicados" />
+        <p>[IMAGENS DA PLANILHA EDITÁVEL]</p>
+        <p>Mostrar:</p>
+        <ul>
+          {[
+            "Guia principal",
+            "Checklists",
+            "Erros e pontos de atenção",
+            "Comunicados prontos",
+            "Diagnóstico",
+            "Plano de ação",
+            "Painel de acompanhamento",
+            "Cronograma",
+          ].map((text) => (
+            <li key={text}>
+              <Check aria-hidden="true" />
+              {text}
+            </li>
+          ))}
+        </ul>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
+
+      <section className="ref-depoimentos">
+        <h2>QUEM JÁ ESTÁ UTILIZANDO OS MATERIAIS</h2>
+        <p className="ref-section-intro">Veja a experiência de quem adquiriu</p>
+        <AutoCarousel images={depoimentos} label="Depoimentos de clientes" />
+        <p>[INSERIR SOMENTE DEPOIMENTOS REAIS]</p>
+        <p>Não inventar nomes, fotos, cargos, empresas ou resultados.</p>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
+
+      <section className="ref-guarantee">
+        <div className="ref-guarantee-seal">
+          <ShieldCheck aria-hidden="true" />
+          <strong>7 DIAS</strong>
+          <span>DE GARANTIA</span>
+        </div>
+        <div>
+          <h2>Conheça o material com tranquilidade</h2>
+          <p>
+            Acesse os materiais, confira como os conteúdos e ferramentas estão organizados e avalie
+            se eles atendem ao que você procurava.
+          </p>
+          <p>
+            Caso não queira continuar, solicite o reembolso dentro de 7 dias após a compra, conforme
+            as condições da plataforma de pagamento.
+          </p>
+        </div>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO ACESSAR COM GARANTIA <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
+
+      <section className="ref-steps">
+        <h2>COMO VOCÊ RECEBE</h2>
+        <p className="ref-section-intro">Acesso digital após a confirmação da compra</p>
+        <div>
+          {[
+            {
+              Icon: Download,
+              title: "01 — PAGAMENTO APROVADO",
+              text: "Após a confirmação do pagamento, siga as instruções enviadas pela plataforma.",
+            },
+            {
+              Icon: ListChecks,
+              title: "02 — ACESSE OS MATERIAIS",
+              text: "Você recebe o guia principal, o Kit de Comunicados e a planilha editável.",
+            },
+            {
+              Icon: BookOpen,
+              title: "03 — COMECE PELO GUIA",
+              text: "Entenda primeiro os principais pontos da Reforma e as áreas que precisam de atenção.",
+            },
+            {
+              Icon: FileCheck2,
+              title: "04 — ORGANIZE A IMPLEMENTAÇÃO",
+              text: "Use a planilha e os comunicados como apoio para organizar suas próximas ações.",
+            },
+          ].map(({ Icon, title, text }) => (
+            <article key={title}>
+              <Icon className="ref-step-svg" aria-hidden="true" />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO GARANTIR MEU ACESSO <ArrowRight aria-hidden="true" />
+        </a>
+      </section>
+
+      <section className="ref-faq">
+        <h2>PERGUNTAS FREQUENTES</h2>
+        <div>
+          {faqs.map(([question, answer]) => (
+            <details key={question}>
+              <summary>
+                {question}
+                <ChevronDown aria-hidden="true" />
+              </summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section className="ref-cta">
+        <h2>APROVEITE A OFERTA</h2>
+        <p className="ref-section-intro">Garanta seu acesso agora</p>
+        <p>
+          Tenha os materiais para entender as mudanças, organizar a implementação e acompanhar os
+          pontos de atenção da Reforma Tributária.
+        </p>
+        <p>Comece sua preparação hoje</p>
+        <ul className="ref-checks">
+          {[
+            "Reforma Tributária Sem Erros",
+            "Bônus 01: Kit de Comunicados Prontos",
+            "Bônus 02: Kit de Implementação Editável",
+            "Garantia de 7 dias",
+          ].map((text) => (
+            <li key={text}>
+              <CheckCircle2 aria-hidden="true" />
+              {text}
+            </li>
+          ))}
+        </ul>
+        <a className="ref-green-btn" href="#oferta">
+          QUERO ADQUIRIR AGORA <ArrowRight aria-hidden="true" />
+        </a>
+        <small>Compra 100% segura. Seus dados são protegidos no ambiente de pagamento.</small>
+      </section>
+
+      <footer className="ref-footer">
+        <div className="ref-footer-note">
+          <strong>GUIA NA PRÁTICA</strong>
+          <p>Material educacional e informativo.</p>
+          <p>
+            Este conteúdo não substitui orientação contábil, fiscal ou jurídica. Antes de aplicar
+            regras tributárias ao seu caso, consulte a legislação vigente, fontes oficiais e
+            profissionais responsáveis.
+          </p>
+          <p>
+            <strong>Termos de Acesso · Política de Privacidade · Contato</strong>
+          </p>
+        </div>
+        <p>© 2026 — Todos os direitos reservados.</p>
+      </footer>
+      <a className="ref-sticky" href="#oferta">
+        QUERO MEU ACESSO <ArrowRight aria-hidden="true" />
+      </a>
+    </main>
+  );
 }
