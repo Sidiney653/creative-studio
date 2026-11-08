@@ -247,4 +247,44 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0}.ref-page{--na
 .ref-carousel-counter{color:#64748b}
 .ref-guarantee p,.ref-guarantee li{color:#526174}
 #checkout-status{color:#263449}
+
+/* Sequência de preparação: ENTENDA · COMUNIQUE · ANALISE · CONFIRA */
+.ref-sequence{padding:70px 24px;text-align:center;background:#fff}
+.ref-sequence>div{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:1140px;gap:24px;margin:40px auto}
+.ref-sequence article{display:flex;flex-direction:column;gap:12px;text-align:left;background:#f7f8fa;border:1px solid #e4e7ed;border-radius:16px;padding:24px}
+.ref-sequence span{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--navy);color:#fff;border-radius:50%;font-weight:800;font-size:16px}
+.ref-sequence h3{font-size:18px;margin:0 0 8px;color:var(--navy)}
+.ref-sequence p{font-size:15px;color:#5c6d80;line-height:1.6;margin:0}
+
+/* Prepare-se antes que os erros virem retrabalho */
+.ref-before{padding:70px 24px;text-align:center;background:#f7f8fa}
+.ref-before>p{max-width:850px;margin:0 auto 26px;font-size:17px;color:#5c6d80}
+.ref-before ul{list-style:none;padding:0;max-width:850px;margin:0 auto 28px;text-align:left;display:grid;gap:12px}
+.ref-before li{display:flex;align-items:flex-start;gap:12px;font-size:17px;line-height:1.6}
+.ref-before li svg{width:20px;height:20px;flex:none;color:var(--green);margin-top:3px}
+
+/* Veja os materiais por dentro */
+.ref-showcase{padding:70px 24px;text-align:center;background:#fff}
+.ref-showcase>p{max-width:850px;margin:0 auto 26px;font-size:17px;color:#5c6d80}
+.ref-showcase ul{list-style:none;padding:0;max-width:850px;margin:0 auto 28px;text-align:left;display:grid;gap:12px}
+.ref-showcase li{display:flex;align-items:flex-start;gap:12px;font-size:17px;line-height:1.6}
+.ref-showcase li svg{width:20px;height:20px;flex:none;color:var(--green);margin-top:3px}
+
+@media(max-width:640px){
+  .ref-sequence{padding:45px 20px}
+  .ref-sequence>div{grid-template-columns:1fr;gap:16px;margin:28px auto}
+  .ref-sequence article{padding:20px;gap:12px;text-align:left}
+  .ref-sequence h3{font-size:17px}
+  .ref-sequence p{font-size:15px}
+  .ref-before{padding:45px 20px}
+  .ref-before ul{max-width:100%}
+  .ref-before li{font-size:16px}
+  .ref-showcase{padding:45px 20px}
+  .ref-showcase ul{max-width:100%}
+  .ref-showcase li{font-size:16px}
+  .ref-guarantee{grid-template-columns:1fr;gap:30px;padding:45px 20px}
+  .ref-guarantee h2{text-align:center}
+  .ref-depoimentos{padding:45px 16px}
+  .ref-depoimentos .ref-carousel-slide{flex-basis:92%}
+}
 #checkout-status button{background:#526a9b}
